@@ -47,8 +47,8 @@
 							<input type="hidden" value="${date3}" name="resdates3"/>
 							<input type="hidden" value="${date4}" name="resdates4"/>
 							</c:if></td>					
-						<td>${selday }박${selday+1 }일</td>
-						<td>${username }명</td>
+						<td>${selday}박${selday+1}일</td>
+						<td>${username}명</td>
 						<td>
 						
 						<%-- <table id="useprice" border="1">

@@ -1,12 +1,12 @@
 @CHARSET "UTF-8";
 
-body {
-	margin: 0;
-	padding: 0;
-	font-size: 0.75em;
-	line-height: 1.2em;
-	background-color: #f1f1f1;
-}
+/* body { */
+/* 	margin: 0; */
+/* 	padding: 0; */
+/* 	font-size: 0.75em; */
+/* 	line-height: 1.2em; */
+/* 	background-color: #f1f1f1; */
+/* } */
 
 .bxslider{
 	height:400px;
@@ -78,13 +78,12 @@ body {
 .login {
 	position:relative;
 	float: right;
-	margin: 20px 64px 0px 0px;
+	margin: 20px 40px 0px 0px;
 	font-family: "굴림체";
 	font-size: 20px;
 	font-weight: bold;
 	/*     border:1px solid blue; */
 	word-spacing: 5px; /*단어간 간격을 띄움 */
-	margin: 30px;
 }
 
 .login a {

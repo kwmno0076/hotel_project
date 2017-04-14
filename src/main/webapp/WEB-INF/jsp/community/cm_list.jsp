@@ -1,18 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../include/header.jsp"%>
 <%-- 상단 공통부분을 외부 포함파일 불러오기 --%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>자유게시판</title>
-<link rel="stylesheet" type="text/css" href="./css/cm_list.css" /><%-- css적용 --%>
-<script src="./js/jquery.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./css/community/cm_list.css" /><%-- css적용 --%>
 <script src="./js/cm.js"></script>
-</head>
-<body>
-<header></header>
+
 <div id="container_cm"><%-- 헤더아래 배경 --%>
  <div id="container_cm1"><%-- 큰틀 --%>
   <h1 class="h">자유게시판~</h1>
@@ -22,7 +15,12 @@
  <div id="menubar">
   <input type="button" value="자유게시판" class="bt1" onclick="location='cm_list.kkc';"/>
   <input type="button" value="나만의포토" class="bt1" onclick="location='ptcm_list.kkc';"/>
-  <input type="button" value="글쓰기" class="btn" onclick="location='cm_write.kkc?page=${page}';" />
+  <c:if test="${!empty id}">
+   <input type="button" value="글쓰기" class="btn" onclick="location='cm_write.kkc?page=${page}';" />
+  </c:if>
+  <c:if test="${empty id}">
+   <input type="button" value="글쓰기" class="btn" onclick="login_check();" />
+  </c:if>
   </div>
  <div class="clear"></div><%-- 빈공백 제거 --%>
  <hr/>
@@ -145,7 +143,6 @@
  </div><%-- container_cm1 끝 --%>
  
 </div><%-- container_cm --%>
-</body>
+
 
 <%@ include file="../include/footer.jsp"%>
-</html>

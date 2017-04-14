@@ -22,8 +22,25 @@
     	alert("내용을 입력하세요!");
     	$("#pt_cont").val("").focus();
     	return false;
-    }	
+    }
+    if($.trim($("#pt_file").val())==""){
+    	alert("파일을 첨부하세요!");
+    	$("#pt_file").val("").focus();
+    	return false;
+    }
  }
+ 
+ function test(){
+		alert("로그인하세요!");
+ }
+ 
+ function login_check(){
+		
+		alert("로그인을 해주세요.");
+		
+		$(location).attr("href", "/project/login.kkc");
+		
+	}
  
 //검색어 유효성 검증
  function find_check(){

@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+#aMain_cont{
+	width:80%;
+	height:600px;
+	margin:0 auto;
+/* 	border:1px solid black; */
+}
+
+#abList_wrap{
+	margin-left:400px;
+}
+
+#abbsEdit_wrap{
+	margin-left:400px;
+}
+#abbsCont_wrap{
+	margin-left:400px;
+}
+#abbsCont_wrap .abbsCont_title{
+	color:black;
+	text-decoration: bold;
+}

@@ -1,13 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ include file="../include/header.jsp"%>
-<%-- 상단 공통부분을 외부 포함파일 불러오기 --%>
+
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>게시판 수정</title>
-<link rel="stylesheet" type="text/css" href="./css/cm_write.css" /><%-- css적용 --%>
-<script src="./js/jquery.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./css/community/cm_write.css" /><%-- css적용 --%>
 <script src="./js/cm.js"></script>
 <script src="./SE2/js/HuskyEZCreator.js"></script>
 
@@ -21,9 +17,6 @@ function aaa(){
 }
 </script>
 
-</head>
-<body>
-<header></header>
 <div id="container_cm"><%-- 헤더아래 배경 --%>
 
  <div id="container_cm1"><%-- 큰틀 --%>
@@ -48,7 +41,7 @@ function aaa(){
   <table id="notice">
    <tr>
     <th class="th1">작성자</th>
-    <td><input name="cm_name" id="cm_name" size="80" class="td1" value="${c.cm_name}"/></td>
+    <td><input name="cm_name" id="cm_name" size="80" class="td1" readonly="readonly" value="${id}" /></td>
    </tr>
    <tr>
     <th class="th1">비밀번호</th>
@@ -76,7 +69,5 @@ function aaa(){
  </div><%-- container_cm1 끝 --%>
  
 </div><%-- container_cm --%>
-</body>
 
 <%@ include file="../include/footer.jsp"%>
-</html>

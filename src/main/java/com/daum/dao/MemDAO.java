@@ -1,6 +1,12 @@
 package com.daum.dao;
 
 
+
+
+import java.util.List;
+
+import com.daum.model.community.CmBean;
+import com.daum.model.community.PtcmBean;
 import com.daum.model.MemberBean;
 
 public interface MemDAO {
@@ -24,6 +30,15 @@ public interface MemDAO {
 	void updatePwd(MemberBean m);
 
 	void delM(MemberBean dm);
+
+	int Listc(CmBean c);
+
+	List<CmBean> getMyList(CmBean c);
+
+	int ListPt(PtcmBean c);
+
+	List<PtcmBean> getPtList(PtcmBean c);
+
 
 
 }

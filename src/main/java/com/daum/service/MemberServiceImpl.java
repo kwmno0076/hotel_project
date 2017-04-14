@@ -1,6 +1,10 @@
 package com.daum.service;
 
 
+
+
+import java.util.List;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
@@ -10,6 +14,8 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import com.daum.dao.MemDAO;
+import com.daum.model.community.CmBean;
+import com.daum.model.community.PtcmBean;
 import com.daum.model.MemberBean;
 
 @Service
@@ -74,5 +80,24 @@ public class MemberServiceImpl implements MemberService {
 				memDao.delM(dm);
 		}
 
+		@Override
+		public int getListCount(CmBean c) {
+			return memDao.Listc(c);
+		}
 
+		@Override
+		public List<CmBean> getMyBoardList(CmBean c) {
+			return memDao.getMyList(c);
+		}
+
+		@Override
+		public int getListPcount(PtcmBean c) {
+			return memDao.ListPt(c);
+		}
+
+		@Override
+		public List<PtcmBean> getMyPBoardList(PtcmBean c) {
+			return memDao.getPtList(c);
+		}
+		
 }

@@ -1,8 +1,14 @@
 package com.daum.service;
 
 
+
+
+import java.util.List;
+
 import javax.mail.MessagingException;
 
+import com.daum.model.community.CmBean;
+import com.daum.model.community.PtcmBean;
 import com.daum.model.MemberBean;
 
 public interface MemberService {
@@ -28,6 +34,17 @@ public interface MemberService {
 	void updatePwd(MemberBean m);
 
 	void delM(MemberBean dm);
+
+	int getListCount(CmBean c);
+
+	List<CmBean> getMyBoardList(CmBean c);
+
+	int getListPcount(PtcmBean c);
+
+	List<PtcmBean> getMyPBoardList(PtcmBean c);
+	
+
+
 
 
 }

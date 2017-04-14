@@ -8,6 +8,19 @@
 <link rel="stylesheet" type="text/css" href="./admin_css/ad_main.css" />
 <script src="./js/jquery.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<script>
+ $(document).ready(function(){  
+  $(".topnav").hover(function() {//마우스를 topnav에 오버시
+   $(this).parent().find(".subnav").slideDown('normal').show();//subnav가 내려옴.
+   $(this).parent().hover(function() {  
+   }, function(){  
+    $(this).parent().find(".subnav").slideUp('fast');//subnav에서 마우스 벗어났을 시 원위치시킴  
+   });  
+  });  
+   
+ });  
+</script>
 </head>
 <body>
 
@@ -23,11 +36,18 @@
    
    <div class="admenu"><%-- 메뉴 라인 --%>
     <ul>
-     <li><a href="#">회원관리</a></li>
+     <li><a href="admin_mem_list.kkc">회원관리</a></li>
      <li><a href="admin_hotel_list.kkc">호텔목록</a></li>
      <li><a href="#">예약현황</a></li>
-     <li><a href="admin_cm_list.kkc">자유게시판</a></li>
-     <li><a href="#">고객센터</a></li>
+     <li>
+<!--      <li><a href="admin_cm_list.kkc">자유게시판</a> -->
+      <div class="topnav"><a href="admin_cm_list.kkc">자유게시판</a></div>
+       <ul class="subnav">
+        <li><a href="admin_ptcm_list.kkc">포토게시판</a></li>
+        <li>asdfasdf</li>
+       </ul>
+     </li>
+     <li><a href="admin_gongji_list.kkc">고객센터</a></li>
     </ul>
    
    </div>
@@ -55,7 +75,7 @@
  <%--관리자 메인 본문--%>
  <div id="aMain_cont">
 
-  <div class="mem">
+  <div class="mem" onclick="location='admin_mem_list.kkc';">
    <ul>
 	<li class="mem_li">회원관리</li>
    </ul>
@@ -70,12 +90,12 @@
 	<li class="res_li">예약현황</li>
    </ul>
   </div>
-  <div class="board">
+  <div class="board" onclick="location='admin_cm_list.kkc';">
    <ul>
 	<li class="board_li">자유게시판</li>
    </ul>
   </div>
-  <div class="mtomqa">
+  <div class="mtomqa" onclick="location='admin_gongji_list.kkc';">
    <ul>
 	<li class="qa_li">고객센터</li>
    </ul>

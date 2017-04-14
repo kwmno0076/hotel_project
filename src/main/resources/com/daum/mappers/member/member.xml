@@ -59,17 +59,104 @@
 
 	<!-- 회원검색(비번찾기) -->
 	<select id="mem_find" parameterType="member" resultType="member">
-		select * from zmem where mem_id=#{mem_id}
+		select *
+		from zmem where mem_id=#{mem_id}
 		and mem_email=#{mem_email}
 	</select>
 
 	<!-- 임시비번 수정 -->
 	<update id="pwd_edit" parameterType="member">
-		update zmem set mem_pwd=#{mem_pwd}
+		update zmem set
+		mem_pwd=#{mem_pwd}
 		where mem_id=#{mem_id}
 	</update>
+
+	<!-- 회원 삭제 -->
 	<update id="delM">
-  	update zmem set mem_state=2, mem_deldate=sysdate 
-  	where mem_id=#{mem_id}
- </update>
+		update zmem set mem_state=2, mem_deldate=sysdate
+		where mem_id=#{mem_id}
+	</update>
+
+	<!-- 마이페이지 검색전후 레코드 개수 -->
+	<select id="cmcount" resultType="int" parameterType="cm">
+		select count(cm_no) from cm
+		<where>
+		cm_name=#{cm_name}
+			<if test="find_field==''">
+				<!-- 검색조건이 없는 경우는 총 레코드 개수 -->
+			</if>
+			<if test="find_field=='cm_title'">
+				<!-- 검색조건이 제목인 경우 -->
+				and cm_title like #{find_name}
+			</if>
+			<if test="find_field=='cm_cont'">
+				<!-- 검색조건이 내용인경우 -->
+				and cm_cont like #{find_name}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 검색전후 목록 -->
+	<select id="getMyList" resultType="cm" parameterType="cm">
+		select * from
+		(select rowNum rNum,cm_no,cm_name,cm_title,cm_hit,cm_date
+		from
+		(select * from cm where cm_name = #{cm_name} 
+			<if test="find_field==''">
+				<!-- 검색조건이 없는 경우는 총 레코드 개수 -->
+			</if>
+			<if test="find_field=='cm_title'">
+				<!-- 검색조건이 제목인 경우 -->
+				and cm_title like #{find_name}
+			</if>
+			<if test="find_field=='cm_cont'">
+				<!-- 검색조건이 내용인 경우 -->
+				and cm_cont like #{find_name}
+			</if>
+		order by cm_no desc))
+		where rNum&gt;=#{startrow} and rNum&lt;=#{endrow}
+		<!-- &gt;은 ~보다 크다(>), &lt;은 ~보다 작다(<) -->
+	</select>
+	
+	
+	<!-- 마이페이지 검색전후 레코드 개수 -->
+	<select id="ptcount" resultType="int" parameterType="ptcm">
+		select count(pt_no) from ptcm
+		<where>
+		pt_name=#{pt_name}
+			<if test="find_field==''">
+				<!-- 검색조건이 없는 경우는 총 레코드 개수 -->
+			</if>
+			<if test="find_field=='pt_title'">
+				<!-- 검색조건이 제목인 경우 -->
+				and pt_title like #{find_name}
+			</if>
+			<if test="find_field=='pt_cont'">
+				<!-- 검색조건이 내용인경우 -->
+				and pt_cont like #{find_name}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 검색전후 목록 -->
+	<select id="getPtList" resultType="ptcm" parameterType="ptcm">
+		select * from
+		(select rowNum rNum,pt_no,pt_name,pt_title,pt_hit,pt_date
+		from
+		(select * from ptcm where pt_name = #{pt_name} 
+			<if test="find_field==''">
+				<!-- 검색조건이 없는 경우는 총 레코드 개수 -->
+			</if>
+			<if test="find_field=='pt_title'">
+				<!-- 검색조건이 제목인 경우 -->
+				and pt_title like #{find_name}
+			</if>
+			<if test="find_field=='pt_cont'">
+				<!-- 검색조건이 내용인 경우 -->
+				and pt_cont like #{find_name}
+			</if>
+		order by pt_no desc))
+		where rNum&gt;=#{startrow} and rNum&lt;=#{endrow}
+		<!-- &gt;은 ~보다 크다(>), &lt;은 ~보다 작다(<) -->
+	</select>
 </mapper>

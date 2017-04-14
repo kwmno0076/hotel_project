@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+#aMain_cont{
+	width:80%;
+	height:600px;
+	margin:0 auto;
+/* 	border:1px solid black; */
+}
+
+#aMedit_wrap{
+	margin-left:400px;
+	
+	
+}
+#abList_wrap{
+	margin-left:300px;
+	
+	
+}
+
+#aMem_info{
+	margin-top:100px;
+	margin-left:400px; 
+	solid 1px solid blue;
+}

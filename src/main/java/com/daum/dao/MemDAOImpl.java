@@ -1,9 +1,15 @@
 package com.daum.dao;
 
+
+
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.daum.model.community.CmBean;
+import com.daum.model.community.PtcmBean;
 import com.daum.model.MemberBean;
 
 @Repository
@@ -54,7 +60,27 @@ public class MemDAOImpl implements MemDAO {
 	public void delM(MemberBean dm) {
 		sqlsession.delete("delM",dm);
 	}
-	
+
+	@Override
+	public int Listc(CmBean c) {
+		return sqlsession.selectOne("cmcount",c);
+	}
+
+	@Override
+	public List<CmBean> getMyList(CmBean c) {
+		System.out.println(c.getCm_name());
+		return sqlsession.selectList("getMyList",c);
+	}
+
+	@Override
+	public int ListPt(PtcmBean c) {
+		return sqlsession.selectOne("ptcount",c);
+	}
+
+	@Override
+	public List<PtcmBean> getPtList(PtcmBean c) {
+		return sqlsession.selectList("getPtList",c);
+	}
 
 	
 

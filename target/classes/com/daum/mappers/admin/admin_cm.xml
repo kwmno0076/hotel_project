@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AdminCm">
+
+ <!-- 검색전후 레코드 개수 -->
+ <select id="ad_count" resultType="int" parameterType="cm">
+  select count(cm_no) from cm
+ <where>
+  <if test="find_field==''">
+  <!-- 검색조건이 없는 경우는 총 레코드 개수 -->
+  </if>
+  <if test="find_field=='cm_name'">
+   <!-- 검색조건이 제목인 경우 -->
+   cm_name like #{find_name}
+  </if>
+  <if test="find_field=='cm_title'">
+   <!-- 검색조건이 제목인 경우 -->
+   cm_title like #{find_name}
+  </if>
+  <if test="find_field=='cm_cont'">
+   <!-- 검색조건이 내용인경우 -->
+   cm_cont like #{find_name}
+  </if>
+ </where>
+ </select>
+
+<!-- 검색전후 목록 -->
+ <select id="ad_list" resultType="cm" parameterType="cm">
+  select * from
+  (select rowNum rNum,cm_no,cm_name,cm_title,cm_hit,cm_date from
+  (select * from cm
+  	<where>
+  	 <if test="find_field==''">
+  	 <!-- 검색조건이 없는 경우는 총 레코드 개수 -->
+  	 </if>
+  	 <if test="find_field=='cm_name'">
+  	 <!-- 검색조건이 제목인 경우 -->
+  	 cm_name like #{find_name}
+  	 </if>
+  	 <if test="find_field=='cm_title'">
+  	 <!-- 검색조건이 제목인 경우 -->
+  	 cm_title like #{find_name}
+  	 </if>
+  	 <if test="find_field=='cm_cont'">
+  	 <!-- 검색조건이 내용인 경우 -->
+  	 cm_cont like #{find_name}
+  	 </if>
+  	</where>
+  	order by cm_no desc))
+  	where rNum&gt;=#{startrow} and rNum&lt;=#{endrow}
+  	<!-- &gt;은 ~보다 크다(>), &lt;은 ~보다 작다(<) -->
+ </select>
+ 
+  <!-- 게시판 저장 -->
+ <insert id="ad_in" parameterType="cm">
+  insert into cm values(cm_no_seq.nextval,#{cm_name},#{cm_title},#{cm_pwd},#{cm_cont},0,sysdate)
+ </insert>
+ 
+ <!-- 내용보기 -->
+ <select id="ad_cont" parameterType="int" resultType="cm">
+  select * from cm where cm_no=#{cm_no}
+ </select>
+ 
+ <!-- 게시판 수정 -->
+ <update id="ad_edit" parameterType="cm">
+  update cm set cm_name=#{cm_name},cm_title=#{cm_title},cm_cont=#{cm_cont} where cm_no=#{cm_no}
+ </update>
+ 
+ <!-- 게시판 삭제 -->
+ <delete id="ad_del" parameterType="int">
+  delete from cm where cm_no=#{cm_no}
+ </delete>
+ 
+ <!-- 댓글 개수 -->
+ <select id="q" parameterType="int" resultType="int">
+  select count(c_no) from comment1 where cm_no=#{cm_no}
+ </select>
+ 
+ <!-- 댓글 목록 -->
+ <select id="w" parameterType="int" resultType="com">
+  select * from comment1 where cm_no=#{cm_no} order by c_no asc
+ </select>
+ 
+ <!-- 댓글 저장 -->
+ <insert id="e" parameterType="com">
+  insert into comment1 values(cm_no_seq.nextval,#{c_name},#{c_cont},sysdate,#{cm_no})
+ </insert>
+ 
+ <!-- 댓글 삭제 -->
+ <delete id="r" parameterType="int">
+  delete from comment1 where c_no=#{c_no}
+ </delete>
+
+</mapper>

@@ -1,23 +1,18 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ include file="../include/header.jsp"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%
 //  response.addHeader("Refresh", "3");
 %>
-<%-- 상단 공통부분을 외부 포함파일 불러오기 --%>
+
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>포토게시판</title>
-<link rel="stylesheet" type="text/css" href="./css/ptcm_cont.css" /><%-- css적용 --%>
-<script src="./js/jquery.js" ></script>
+
+<link rel="stylesheet" type="text/css" href="./css/community/ptcm_cont.css" /><%-- css적용 --%>
+<script src="./js/ptcm.js" ></script>
 <script src="./js/ptcomment.js" ></script>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="./js/jquery.bxslider.min.js"></script>
-<link href="./css/jquery.bxslider2.css" rel="stylesheet" />
+<link href="./css/jquery.bxslider3.css" rel="stylesheet" />
 
 <!-- bx슬라이더 부분 -->
 <script>
@@ -49,10 +44,6 @@ $(document).ready(function(){
  });
 </script>
 
-
-</head>
-<body>
-<header></header>
 <div id="container_cm"><%-- 헤더아래 배경 --%>
 
  <div id="container_cm1"><%-- 큰틀 --%>
@@ -93,7 +84,7 @@ $(document).ready(function(){
       
       
      </div>
-     
+ <div id="table_div">
   <table id="table" >
    <tr>
     <th class="th1">no</th>
@@ -115,12 +106,16 @@ $(document).ready(function(){
     <td class="td2" colspan="6">${p.pt_cont}</td>
    </tr>
   </table>
+ </div>
   
   <div class="clear"></div>
   
-  <input type="button" value="삭제" class="btn1" onclick="location='ptcm_cont.kkc?no=${p.pt_no}&page=${page}&state=del';" />
-  <input type="button" value="수정" class="btn1" onclick="location='ptcm_cont.kkc?no=${p.pt_no}&page=${page}&state=edit';" />
-  </div>
+  <c:if test="${p.pt_name == id}">
+   <input type="button" value="삭제" class="btn1" onclick="location='ptcm_cont.kkc?no=${p.pt_no}&page=${page}&state=del';" />
+   <input type="button" value="수정" class="btn1" onclick="location='ptcm_cont.kkc?no=${p.pt_no}&page=${page}&state=edit';" />
+  </c:if>
+  
+  </div><%-- container_cm3 끝 --%>
  </div><%-- container_cm2 끝 --%>
   
  
@@ -137,8 +132,22 @@ $(document).ready(function(){
     <th colspan="2" class="cth1">댓글수: ${ptcom_count} 개</th>
    </tr>
    <tr>
-    <th><textarea name="pc_cont" id="pc_cont" class="cth2"></textarea></th>
-    <th><input type="submit" value="댓글달기" class="cbtn1" /></th>
+    <th>
+     <c:if test="${id!=null}">
+      <textarea name="pc_cont" id="pc_cont" class="cth2"></textarea>
+     </c:if>
+     <c:if test="${id==null}">
+      <textarea name="pc_cont" id="pc_cont" class="cth2" readonly="readonly" onclick="return test();" ></textarea>
+     </c:if>
+    </th>
+    <th>
+     <c:if test="${id!=null}">
+      <input type="submit" value="댓글달기" class="cbtn1" />
+     </c:if>
+     <c:if test="${id==null}">
+      <input type="button" value="댓글달기" class="cbtn1" onclick="return test();" />
+     </c:if>
+    </th>
    </tr>
   </table>
  </form>
@@ -156,7 +165,9 @@ $(document).ready(function(){
      <th>${pc.pc_name}</th>
      <td class="ctd1">${fn:substring(pc.pc_date,0,16)}</td>
      <td class="ctd2">
-      <a href="javascript:ptcom_del_ok(${pc.pc_no},${p.pt_no},${page});" onfocus="this.blur();">삭제</a>수정
+      <c:if test="${id == p.pt_mem_id}">
+       <a href="javascript:ptcom_del_ok(${pc.pc_no},${p.pt_no},${page});" onfocus="this.blur();">삭제</a>수정
+      </c:if>
      </td>
     </tr>
     <tr>
@@ -171,7 +182,5 @@ $(document).ready(function(){
 </div><%-- container_cm --%>
 
  <div class="clear"></div>
-</body>
 
 <%@ include file="../include/footer.jsp"%>
-</html>

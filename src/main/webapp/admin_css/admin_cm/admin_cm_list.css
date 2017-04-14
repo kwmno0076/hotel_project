@@ -1,0 +1,54 @@
+@CHARSET "UTF-8";
+
+#adList_warp{
+	width:80%;
+	height:600px;
+	margin:0 auto;
+/* 	border:1px solid black; */
+}
+
+h1{
+	text-align:center;
+	margin:50px;
+/* 	border:1px solid black; */
+}
+
+h3{
+	margin-left:1020px;
+/* 	border:1px solid black; */
+}
+
+.btn1{
+	outline:0;
+	width:50px;
+	border-radius:13px;
+	background-color:white;
+}
+
+.input_b{
+	width:100px;
+	border-radius:13px;
+	background-color:white;
+}
+
+#adList_t{
+	margin:0 auto;
+/* 	border:1px solid black; */
+}
+
+#adList_t th{
+	background-color:#efa5f3;
+}
+
+#adListW_menu{
+	margin-left:1010px;
+}
+
+#adFind_wrap{
+	text-align:center;
+}
+
+#adList_paging{
+	text-align:center;
+}
+

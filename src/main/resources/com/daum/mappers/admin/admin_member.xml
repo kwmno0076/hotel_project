@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AdminMember">
+
+	<!-- 검색전후 회원수 -->
+	<select id="mcount" parameterType="member" resultType="int">
+		select count(mem_id) from zmem
+		<where>
+			<if test="find_field==''">
+				<!-- 검색조건이 없어서 총회원수 -->
+			</if>
+			<if test="find_field=='mem_id'">
+				<!-- 검색조건이 아이디인 경우 -->
+				mem_id like #{find_name}
+			</if>
+			<if test="find_field=='mem_name'">
+				<!-- 검색조건이 회원이름인 경우 -->
+				mem_name like #{find_name}
+			</if>
+		</where>
+	</select>
+
+	<!-- 검색전후 회원목록 -->
+	<select id="amlist" parameterType="member" resultType="member">
+		select * from
+		(select rowNum rNum,mem_id,mem_name,mem_phone,
+		mem_state,mem_date from
+		(select * from zmem
+		<where>
+			<if test="find_field==''"></if>
+			<if test="find_field=='mem_id'">
+				mem_id like #{find_name}
+			</if>
+			<if test="find_field=='mem_name'">
+				mem_name like #{find_name}
+			</if>
+		</where>
+		order by mem_name asc))
+		where rNum&gt;=#{startrow} and
+		rNum&lt;=#{endrow}
+	</select>
+
+	<!-- 회원상세정보와 수정폼 -->
+	<select id="ainfo" parameterType="String" resultType="member">
+		select * from zmem where mem_id=#{id}
+	</select>
+
+	
+	<!-- 수정완료 -->
+  <update id="editM" parameterType="member">
+   update zmem set mem_pwd=#{mem_pwd},
+   mem_name=#{mem_name},mem_email=#{mem_email},
+   mem_phone=#{mem_phone},mem_state=#{mem_state} 
+     where mem_id=#{mem_id}
+  </update>
+  
+  <!-- 회원 삭제 -->
+  <delete id="delMem" parameterType="String">
+   delete from zmem where mem_id=#{id}
+  </delete>
+
+</mapper>

@@ -1,19 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ include file="../include/header.jsp"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%-- 상단 공통부분을 외부 포함파일 불러오기 --%>
+
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>자유게시판</title>
-<link rel="stylesheet" type="text/css" href="./css/cm_cont.css" /><%-- css적용 --%>
-<script src="./js/jquery.js" ></script>
+
+<link rel="stylesheet" type="text/css" href="./css/community/cm_cont.css" /><%-- css적용 --%>
+<script src="./js/cm.js" ></script>
 <script src="./js/comment.js" ></script>
-</head>
-<body>
-<header></header>
+
 <div id="container_cm"><%-- 헤더아래 배경 --%>
 
  <div id="container_cm1"><%-- 큰틀 --%>
@@ -54,9 +47,11 @@
     <td class="td2" colspan="6">${cont}</td>
    </tr>
   </table>
-  <input type="button" value="삭제" class="btn1" onclick="location='cm_cont.kkc?no=${c.cm_no}&page=${page}&state=del';" />
-  <input type="button" value="수정" class="btn1" onclick="location='cm_cont.kkc?no=${c.cm_no}&page=${page}&state=edit';" />
   
+  <c:if test="${c.cm_name == id}">
+   <input type="button" value="삭제" class="btn1" onclick="location='cm_cont.kkc?no=${c.cm_no}&page=${page}&state=del';" />
+   <input type="button" value="수정" class="btn1" onclick="location='cm_cont.kkc?no=${c.cm_no}&page=${page}&state=edit';" />
+  </c:if>
  </div><%-- table 끝 --%>
  
  <%-- 댓글 입력폼 --%>
@@ -70,8 +65,22 @@
     <th colspan="2" class="cth1">댓글수: ${com_count} 개</th>
    </tr>
    <tr>
-    <th><textarea name="c_cont" id="c_cont" class="cth2"></textarea></th>
-    <th><input type="submit" value="댓글달기" class="cbtn1" /></th>
+    <th>
+     <c:if test="${id!=null}">
+      <textarea name="c_cont" id="c_cont" class="cth2"></textarea>
+     </c:if>
+     <c:if test="${id==null}">
+      <textarea name="c_cont" id="c_cont" class="cth2" readonly="readonly" onclick="return test();" ></textarea>
+     </c:if>
+    </th>
+    <th>
+     <c:if test="${id!=null}">
+      <input type="submit" value="댓글달기" class="cbtn1" />
+     </c:if>
+     <c:if test="${id==null}">
+      <input type="button" value="댓글달기" class="cbtn1" onclick="return test();"/>
+     </c:if>
+     </th>
    </tr>
   </table>
  </form>
@@ -87,7 +96,9 @@
      <th>${cb.c_name}</th>
      <td class="ctd1">${fn:substring(cb.c_date,0,16)}</td>
      <td class="ctd2">
-      <a href="javascript:com_del_ok(${cb.c_no},${c.cm_no},${page});" onfocus="this.blur();">삭제</a>수정
+      <c:if test="${id == c.cm_mem_id}">
+       <a href="javascript:com_del_ok(${cb.c_no},${c.cm_no},${page});" onfocus="this.blur();">삭제</a>수정
+      </c:if>
      </td>
     </tr>
     <tr>
@@ -102,7 +113,5 @@
 </div><%-- container_cm --%>
 
  <div class="clear"></div>
-</body>
 
 <%@ include file="../include/footer.jsp"%>
-</html>

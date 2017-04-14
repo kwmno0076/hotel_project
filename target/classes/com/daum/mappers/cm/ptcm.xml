@@ -71,7 +71,7 @@
  
  <!-- 게시판 수정 -->
  <update id="ptcmEdit" parameterType="ptcm">
-  update ptcm set pt_name=#{pt_name},pt_title=#{pt_title},pt_cont=#{pt_cont},0,0  where pt_no=#{pt_no}
+  update ptcm set pt_name=#{pt_name},pt_title=#{pt_title},pt_cont=#{pt_cont},pt_file=#{pt_file},ori_pt_file=#{ori_pt_file}  where pt_no=#{pt_no}
  </update>
  
  <!-- 게시판 삭제 -->

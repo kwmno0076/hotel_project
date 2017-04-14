@@ -1,17 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ include file="../include/header.jsp"%>
-<%-- 상단 공통부분을 외부 포함파일 불러오기 --%>
+
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>게시판 삭제</title>
-<link rel="stylesheet" type="text/css" href="./css/cm_write.css" /><%-- css적용 --%>
-<script src="./js/jquery.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./css/community/cm_write.css" /><%-- css적용 --%>
 <script src="./js/cm.js"></script>
-</head>
-<body>
-<header></header>
+
 <div id="container_cm"><%-- 헤더아래 배경 --%>
 
  <div id="container_cm1"><%-- 큰틀 --%>
@@ -52,7 +46,5 @@
  </div><%-- container_cm1 끝 --%>
  
 </div><%-- container_cm --%>
-</body>
 
 <%@ include file="../include/footer.jsp"%>
-</html>

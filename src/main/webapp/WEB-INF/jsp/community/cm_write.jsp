@@ -1,13 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ include file="../include/header.jsp"%>
-<%-- 상단 공통부분을 외부 포함파일 불러오기 --%>
+
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>게시판 글쓰기</title>
-<link rel="stylesheet" type="text/css" href="./css/cm_write.css" /><%-- css적용 --%>
-<script src="./js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/community/cm_write.css" /><%-- css적용 --%>
 <script src="./js/cm.js"></script>
 <script src="./SE2/js/HuskyEZCreator.js"></script>
 
@@ -21,15 +16,12 @@ function aaa(){
 }
 </script>
 
-</head>
-<body>
-<header></header>
 <div id="container_cm"><%-- 헤더아래 배경 --%>
 
  <div id="container_cm1"><%-- 큰틀 --%>
   <h1 class="h">글쓰기~</h1>
  <div class="clear"></div><%-- 빈공백 제거 --%>
- <form method="post" id="asdf"action="cm_write_ok.kkc" onsubmit="return cm_check();" >
+ <form method="post" id="asdf" action="cm_write_ok.kkc" onsubmit="return cm_check();" >
  <div id="menubar">
   <input type="button" value="자유게시판" class="bt1" onclick="location='cm_list.kkc';"/>
   <input type="button" value="나만의포토" class="bt1" onclick="location='ptcm_list.kkc';"/>
@@ -46,7 +38,7 @@ function aaa(){
   <table id="notice">
    <tr>
     <th class="th1">작성자</th>
-    <td><input name="cm_name" id="cm_name" class="td1" /></td>
+    <td><input name="cm_name" id="cm_name" class="td1" readonly="readonly" value="${id}"/></td>
    </tr>
    <tr>
     <th class="th1">비밀번호</th>
@@ -74,7 +66,5 @@ function aaa(){
  </div><%-- container_cm1 끝 --%>
  
 </div><%-- container_cm --%>
-</body>
 
 <%@ include file="../include/footer.jsp"%>
-</html>

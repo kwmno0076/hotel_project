@@ -36,7 +36,7 @@
       <ul class="nav navbar-nav">
         <li><a href="index.kkc">홈</a></li>
         <li><a href="main.kkc">호텔</a>
-        <li><a href="community.kkc">커뮤니티</a>
+        <li><a href="cm_list.kkc">커뮤니티</a>
         <li><a href="customcenter.kkc">고객센터</a>
       </ul>
       <ul class="nav navbar-nav navbar-right">

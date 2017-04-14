@@ -1,8 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c"
-           uri="http://java.sun.com/jsp/jstl/core" %>
-           
-           
+﻿<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,27 +8,19 @@
 <title></title>
 
 
-<script src="./js/hotel.js"></script>
-<link rel="stylesheet" type="text/css" href="./css/main.css" /><%-- css적용 --%>
-<link rel="stylesheet" type="text/css" href="./css/ho.css" />
-<link rel="stylesheet" type="text/css" href="./css/hotel.css" /><%-- css적용 --%>
-
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-
-
 <script src=./js/jquery.js></script>
 <script src=./js/index_page.js></script>
 <script src="../js/kumsa.js"></script>
 <script src="./js/modernizr.custom.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="./js/jquery.lettering.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-<script src="./js/jquery.ulslide.js"></script>
 
 
 
+<link rel="stylesheet" type="text/css" href="./css/main.css" /><%-- css적용 --%>
+<link rel="stylesheet" type="text/css" href="./css/ho.css" />
+<link rel="stylesheet" type="text/css" href="./css/hotel.css" /><%-- css적용 --%>
 
 </head>
 <body id="back">

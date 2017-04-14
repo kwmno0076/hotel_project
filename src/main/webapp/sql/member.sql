@@ -13,7 +13,6 @@ create table zmem(
  not null	
  ,mem_date date -- 회원등록날짜
  ,mem_state number(38) --가입회원 1,탈퇴회원 2
- ,mem_delcont varchar2(4000) --탈퇴사유
  ,mem_deldate date --탈퇴날짜
 );
 

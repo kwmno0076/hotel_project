@@ -1,0 +1,236 @@
+@CHARSET "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+/* body, div, ul, li, table, tr, td, th{margin:0px; padding:0px;} */
+
+ul, li{list-style:none;}
+
+#adheader {
+	position:relative;
+	width: 100%;
+	height: 80px;
+	background-color: #FFF;
+/* 	border:1px solid red; */
+}
+
+.adlogo {
+	position:relative;
+	width: 140px;
+	float: left;
+	margin: 10px 0px 0px 50px;
+}
+
+.admenu {
+	position:relative;
+	float: left;
+	margin: 25px 0px 0px 0px;
+/* 	border:1px solid blue; */
+}
+
+.admenu ul {
+	list-style: none; /*수직 목록 앞 점 마커를 없앰*/
+	font-family: "굴림체";
+	font-size: 20px;
+	font-weight: bold; /*글자를 진하게 표현*/
+	color: #810177;
+	margin: 0px;
+}
+
+.admenu ul li {
+	float: left; /* 수직 목록을 수평 목록으로*/
+	margin: 0px 10px;
+	color: #810177;
+}
+
+.admenu a {
+	display: block; /*a 태그가 인라인 요소 태그이다. 이것을 블록요소로 바꿈*/
+	height: 20px;
+	padding: 10px; /*상하 좌우 안여백을 동시에 처리*/
+	text-decoration: none; /*하이퍼링크 된곳 밑줄선 사라지게함*/
+	color: #810177;
+}
+
+.adlogin {
+	position:relative;
+	float: right;
+	margin: 17px 40px 0px 0px;
+	font-family: "굴림체";
+	font-size: 20px;
+	font-weight: bold;
+	/*     border:1px solid blue; */
+	word-spacing: 5px; /*단어간 간격을 띄움 */
+}
+
+.adlogin a {
+	text-decoration: none;
+	color: #810177;
+}
+
+/* 가운데 박스 5개 */
+#wrap1{
+/* 	border:1px solid black; */
+	width:70%;
+	height:700px;
+	margin:0 auto;
+}
+
+관리자 메인페이지
+#aMain_cont{
+	width:950px;
+	height:auto; 
+	margin-left:auto;
+	margin-right:auto;
+	border:1px solid red;
+}
+
+#aMain_cont .mem{
+	width:200px;
+	height:200px;
+	border:0px solid red;
+	float:left;
+	margin-left:70px;
+	margin-top:80px;
+	background-image:url(../gallery/img_1.jpg);
+	background-position:center;
+	background-repeat:no-repeat;
+	border-radius:15px;
+	cursor:pointer;
+}
+
+#aMain_cont .mem_li{
+	font-size:30px;
+	font-weight:bold;
+	width:150px;
+	float:left;
+	margin-top:200px;
+	margin-left:5px;
+}
+
+#aMain_cont .camplist{
+	width:200px;
+	height:200px;
+	border:0px solid red;
+	float:left;
+	margin-left:175px;
+	margin-top:80px;
+	background-image:url(../gallery/img_7.jpg);
+	background-position:center;
+	background-repeat:no-repeat;
+	cursor:pointer;
+	border-radius:15px;
+}
+
+#aMain_cont .camp_li{
+	font-size:30px;
+	font-weight:bold;
+	width:150px;
+	float:left;
+	margin-top:200px;
+	margin-left:5px;
+}
+
+#aMain_cont .res{
+	width:200px;
+	height:200px;
+	border:0px solid red;
+	float:left;
+	margin-top:80px;
+	margin-left:165px;
+	background-image:url(../gallery/img_2.jpg);
+	background-position:center;
+	background-repeat:no-repeat;
+	border-radius:15px;
+	cursor:hand; cursor:pointer;
+}
+
+#aMain_cont .res_li{
+	font-size:30px;
+	font-weight:bold;
+	width:150px;
+	float:left;
+	margin-top:200px;
+	margin-left:5px;
+}
+
+#aMain_cont .board{
+	width:200px;
+	height:200px;
+	border:0px solid red;
+	float:left;
+	margin-left:250px;
+	margin-top:130px;
+	background-image:url(../gallery/img_10.jpg);
+	background-position:center;
+	background-repeat:no-repeat;
+	border-radius:15px;
+	cursor:pointer;
+}
+
+#aMain_cont .board_li{
+	font-size:30px;
+	font-weight:bold;
+	width:150px;
+	float:left;
+	margin-top:200px;
+	margin-left:-15px;
+}
+
+#aMain_cont .mtomqa{
+	width:200px;
+	height:200px;
+	border:0px solid red;
+	float:left;
+	margin-left:180px;
+	margin-top:130px;
+	background-image:url(../gallery/img_3.jpg);
+	background-position:center;
+	background-repeat:no-repeat;
+	border-radius:15px;
+	cursor:pointer;
+}
+#aMain_cont .qa_li{
+	font-size:30px;
+	font-weight:bold;
+	width:150px;
+	float:left;
+	margin-top:200px;
+	margin-left:5px;
+}
+
+#aMain_cont img{
+	margin-left:10px;
+	margin-top:10px;
+}
+
+
+
+
+
+
+
+
+
+
+/*네비게이션 전체 영역 제어*/
+
+.nav {
+	height:40px;
+	list-style: none;
+	width:100%;
+	background: #1478CD;
+	font-size: 13px;
+	border:0px solid black;
+}
+
+
+
+/*주메뉴 영역 제어*/
+.topnav{
+	text-align:center;
+	width:100px;
+	height:20px;
+	cursor:pointer;
+	font-weight:bold;
+	border:0px solid red;
+}
+

@@ -311,7 +311,7 @@
 					<tr>
 					<th class="qq">비밀번호</th>
 					<td colspan=3><input type="password" name="reserve_pwd" id="r_pwd" size="22" required/> &nbsp;* 꼭 기억해라 <span
-						style="color: #B70D0D">예약확인</span>이 가능합니다. <span style="color: #B70D0D">(숫자 4자리이상)</span></td>
+						style="color: #B70D0D">예약확인</span>이 가능하다.<span style="color: #B70D0D">(숫자 4자리이상)</span></td>
 					</tr>
 				</table>
 					

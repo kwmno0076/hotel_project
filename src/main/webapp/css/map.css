@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+
+#map{
+	border: 2px solid red;
+	width: 1000px;
+	height: 800px;
+	margin: 30px auto 100px;
+	
+}
+
+
+

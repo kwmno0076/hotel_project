@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias alias="hotel" type="com.daum.model.HotelBean" />
+		<typeAlias alias="admin" type="com.daum.model.AdminBean" />
+		<typeAlias alias="reserve" type="com.daum.model.ReserveBean" />
+		<typeAlias alias="member" type="com.daum.model.MemberBean"/>
+		<typeAlias alias="cm" type="com.daum.model.CmBean" />
+		<typeAlias alias="com" type="com.daum.model.CommentBean" />
+		<typeAlias alias="ptcm" type="com.daum.model.PtcmBean" />
+		<typeAlias alias="ptcom" type="com.daum.model.PtcommentBean" />
+
+	</typeAliases>
+</configuration> 

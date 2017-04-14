@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="AdminReserve">
+
+<select id="r_list" resultType="reserve" parameterType="reserve">
+ select * from
+ (select rowNum rNum,reserve_no,reserve_Hno,reserve_name,reserve_RoomFind ,reserve_UserId,reserve_UserName,reserve_Date,reserve_Night,
+ reserve_Ref,reserve_Addr,
+ reserve_pwd,reserve_price ,reserve_Payment, reserve_Payname, reserve_Paynum, reserve_Payok, reserve_Regdate from
+ (select * from hotel_reserve
+ <where>
+  <if test="find_field==''"></if>
+  <if test="find_field=='reserve_resname'">
+r_resname like #{find_name}
+</if>
+<if test="find_field=='reserve_UserId'">
+r_memid like #{find_name}
+</if>
+<if test="find_field=='reserve_Addr'">
+r_restel like #{find_name}
+</if>
+<if test="find_field=='reserve_payment'"> 
+r_payment like #{find_name}
+</if>
+<if test="find_field=='reserve_Payok'">
+r_payok like #{find_name}
+</if>
+ </where>
+ order by reserve_no desc))
+ where rNum &gt;=#{start_row} and rNum &lt;=#{end_row}
+</select>
+
+
+<!-- 검색전후 레코드 개수 -->
+<select id="r_count" resultType="int" parameterType="reserve">
+select count(reserve_no) from hotel_reserve
+<where>
+<if test="find_field==''">
+</if>
+<if test="find_field=='reserve_resname'">
+r_resname like #{find_name}
+</if>
+<if test="find_field=='reserve_UserId'">
+r_memid like #{find_name}
+</if>
+<if test="find_field=='reserve_Addr'">
+r_restel like #{find_name}
+</if>
+<if test="find_field=='reserve_payment'">
+r_payment like #{find_name}
+</if>
+<if test="find_field=='reserve_payok'">
+r_payok like #{find_name}
+</if>
+</where>
+</select>
+
+</mapper> 

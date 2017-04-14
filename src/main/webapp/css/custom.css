@@ -1,0 +1,95 @@
+@CHARSET "UTF-8";
+#container_cm{	/* 전체배경색 */
+	background-color:#fbfbfb;
+}
+
+#container_cm1{	/* 게시판 큰틀 */
+	width:80%;
+	height:800px;
+	margin:auto;
+/* 	border:1px solid red; */
+}
+
+.h{
+	float:left;
+	font-size:30px;
+	color:#000000;
+}
+.no{
+	margin-right:10px;
+}
+#s_me{
+/* 	border:1px solid red; */
+	width:200px;
+	float:left;
+	font-weight:bold;
+	font-size:15px;
+	font-family: 나눔고딕;
+}
+#s_me ul li{
+	list-style: none;
+	margin:0px 0px 30px 0px;
+}
+
+#table_div{
+	width:80%;
+	margin:0 auto;
+	float:right;
+/* 	border:1px solid black; */
+}
+
+#notice{
+/* 	width:80%; */
+}
+
+.title{
+	width:680px;
+}
+
+#notice th{
+	text-align:center;
+	border-bottom:1px solid #b2b2b2;
+}
+
+#notice td{
+	text-align:center;
+	border-bottom:1px solid #ccc;
+	padding:20px 0px;
+}
+
+#notice tr:hover{
+	cursor:pointer; cursor:hand;/*마우스 화살표를 손가락모양으로 바뀜*/
+}
+
+#notice td:hovar{
+	cursor:pointer; cursor:hand;
+	background-color:#f4f4f4;
+}
+
+#page_control{/* 페이지 넘기는 숫자 */
+	text-align:center; 
+	margin:8px 0px 0px 0px;
+}
+
+#page_control a{/* 페이지 넘기는 숫자 */
+	text-decoration:none; 
+	padding:0px 5px;
+	color:#333;
+}
+
+#page_control a:hover{/* 페이지넘기는 숫자 마우스 오버시 */
+   text-decoration:underline; 
+   font-weight:bold;
+   color:#F90;	
+}
+
+
+#s_me a{
+	text-decoration: none;
+	color: black;
+}
+
+#s_me a:hover{
+	text-decoration: none;
+	color:black;
+}

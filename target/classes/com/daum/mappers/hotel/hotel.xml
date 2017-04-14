@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hotel">
+
+	<!-- 자료실 저장 -->
+	<insert id="h_in" parameterType="hotel">
+		insert into tbl_Hotel values(h_no_seq.nextval,#{h_name},#{h_phone},
+		#{h_title},#{h_room},#{h_room_ok}, #{h_price_room},#{h_option},#{h_price_option},#{h_local},#{h_cont},#{h_file},0,sysdate)
+	</insert>
+
+
+	<!-- 검색전후 목록 -->
+	<select id="hlist" resultType="hotel" parameterType="hotel">
+		select * from
+		(select rowNum rNum,h_no,h_name, h_phone, h_title,h_room, h_room_ok , h_price_room, h_option, h_price_option, h_local, h_cont, h_file,
+		h_hit,h_date from
+		(select * from tbl_Hotel
+		<where>
+			<if test="find_field==''">
+				<!-- 검색조건이 없는 경우는 총 레코드 개수 -->
+			</if>
+			<if test="find_field=='h_title'">
+				<!-- 검색조건이 제목인 경우 -->
+				h_title like #{find_name}
+			</if>
+
+			<if test="find_field=='h_local'">
+				<!-- 검색조건이 지역인 경우 -->
+				h_local like #{find_name}
+			</if>
+
+			<if test="find_field=='h_cont'">
+				<!-- 검색조건이 내용인경우 -->
+				h_cont like #{find_name}
+			</if>
+		</where>
+		order by h_no desc))
+		where rNum&gt;=#{startrow} and rNum&lt;=#{endrow}
+		<!-- &gt;은 ~보다 크다(>), &lt;은 ~보다 작다(<) -->
+	</select>
+
+
+	<!-- 검색전후 레코드 개수 -->
+	<select id="hcount" resultType="int" parameterType="hotel">
+		select count(h_no) from tbl_Hotel
+		<where>
+			<if test="find_field==''">
+				<!-- 검색조건이 없는 경우는 총 레코드 개수 -->
+			</if>
+			<if test="find_field=='h_title'">
+				<!-- 검색조건이 제목인 경우 -->
+				h_title like #{find_name}
+			</if>
+
+			<if test="find_field=='h_local'">
+				<!-- 검색조건이 지역인 경우 -->
+				h_local like #{find_name}
+			</if>
+
+			<if test="find_field=='h_cont'">
+				<!-- 검색조건이 내용인경우 -->
+				h_cont like #{find_name}
+			</if>
+		</where>
+	</select>
+
+	<!-- 조회수증가 -->
+	<update id="hhit" parameterType="int">
+		update tbl_Hotel set h_hit=h_hit+1 where h_no=#{h_no}
+	</update>
+
+	<!-- 내용보기 + 호텔예약 페이지 연동 -->
+	<select id="hcont" parameterType="int" resultType="hotel">
+		select * from tbl_Hotel where h_no=#{h_no}
+	</select>
+
+	<!-- 자료실 수정 -->
+	<update id="hedit" parameterType="hotel">
+		update tbl_Hotel set h_name=#{h_name},h_phone=#{h_phone},
+		h_title=#{h_title},	h_room=#{h_room}, h_room_ok=#{h_room_ok} , h_price_room=#{h_price_room},h_option=#{h_option},h_price_option=#{h_price_option},
+		h_local=#{h_local},h_cont=#{h_cont},
+		h_file=#{h_file} where h_no=#{h_no}
+	</update>
+
+	<!-- 자료실 삭제 -->
+	<delete id="hdel" parameterType="int">
+		delete from tbl_Hotel where h_no=#{h_no}
+	</delete>
+	
+	<!-- 상세보기 리스트 -->
+	<select id="de_01" resultType="hotel" parameterType="int">
+		select * from tbl_Hotel where h_no=#{h_no}
+	</select>
+	
+	
+	<!-- 예약가능 룸 수 -->
+	<select id="getNum" resultType="hotel" parameterType="int">
+		select h_room_ok from tbl_Hotel where h_no=#{h_no}
+	</select>
+	
+	<!-- 호텔명 이름 -->
+	<select id="getName" parameterType="int" resultType="hotel">
+		select h_title from tbl_Hotel where h_no=#{h_no}
+	</select>
+	
+	
+
+
+</mapper>

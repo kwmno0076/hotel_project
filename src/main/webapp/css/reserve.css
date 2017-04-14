@@ -1,0 +1,151 @@
+@CHARSET "UTF-8";
+
+
+a:VISITED{
+		 
+		 	text-decoration: none;
+		 	list-style:none;
+ }
+ 
+hr{
+ 	border: 2px solid black; 
+}
+ 
+#one{ /* 전체 */
+	 /*background-color: #ebeced; */
+	text-shadow: none;
+	display: block;
+}
+#two{ /* 우측 메인 이미지 전채*/
+ 	
+	width: 1000px;
+	height: 800px;
+	margin: 0px 0px 0px 50px;
+	display: inline-block;
+	
+}
+
+#re_h{ /* 우측 메인 이미지*/
+ 	
+	width: 900px;
+	height: 700px;
+	
+	display: inline-block;
+	margin: 0px 0px 0px 20px;
+}	
+
+#sex{
+	border: 1.5px solid #626262;
+	display: inline-block;
+	position: absolute;
+	width: 520px;
+}
+
+.room { 
+	
+font-size:17px;
+font-weight:bold;
+height:50px;
+width: 400px; /* 원하는 너비설정 */ 
+padding: .8em .5em; /* 여백으로 높이 설정 */ 
+font-family: inherit; /* 폰트 상속 */ 
+background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) 
+no-repeat 95% 50%; /* 네이티브 화살표 대체 */ 
+border: 1px solid #999; border-radius: 0px; /* iOS 둥근모서리 제거 */ 
+-webkit-appearance: none; /* 네이티브 외형 감추기 */ 
+-moz-appearance: none; appearance: none; }
+
+#test{
+	width:900px;
+	height:85px;
+			
+	display: inline-block;
+	
+	
+}
+.test{
+	
+	display: inline-block;
+	
+	margin:30px -35px 0px 49px;
+	
+	width:50px;
+	height: 50px;
+ 
+	
+	
+}
+
+.test :HOVER img{
+/* 	border: 2px solid red; */
+}
+
+.test :active img{	
+	
+}
+
+
+#btn_i{
+	display: inline-block;
+/* 	border: 1px solid red; */
+	width: 180px;
+	height: 40px;
+	float:right;
+	background-color: #fbc5fc;
+	font-weight: bold;
+	font-size: 12px;
+	font-family: fantasy;
+	color: #000000;
+	margin-top: 10px;
+}
+
+#bank{
+	display: inline-block;
+	float: left;
+	
+}
+#bank2{
+	font-size:17px;
+	display:inline;
+	height: 30px;
+	float: left;
+	width:400px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.bank3{
+	display:inline-block;
+	height: 40px;
+	
+	width:80px;
+	margin-right:0px;
+	font-size: 18px;
+	line-height: 0px;
+}
+
+.bank4{
+	display:inline-block;
+	height: 40px;
+	font-weight: bold;
+	width:80px;
+	margin-right:0px;
+	font-size: 18px;
+	line-height: 0px;
+}
+
+.price{
+	border: 1px solid red;
+	height: 20px;
+}
+
+#result{
+	width: 300px;
+	display:inline-block;
+	height: 60px;
+	margin:15px 0px 0px 100px; 
+	background-color: #f3728e;
+	cursor: pointer;
+}
+
+

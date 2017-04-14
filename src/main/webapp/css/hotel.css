@@ -1,0 +1,282 @@
+@CHARSET "UTF-8";
+
+.body{ /* 화면 크기 조절 못하게 하는 거라던데*/
+	onresize:"parent.resizeTo(1280,800)"; 
+	onload:"parent.resizeTo(500,400)";
+	} 
+
+/* a:VISITED{
+		 	color	:#ff3478;
+		 	text-decoration: none;
+ } */
+ 
+#one{ /* 전체 */
+	background-color: #ebeced;
+	text-shadow: none;
+	display: block;
+	height: 1600px;
+}
+
+ #slider{ /* 좌측 하단 메뉴 박스*/
+	
+	width: 300px;
+	height: 500px;
+	margin: 80px 0px 0px 0px;
+	display: inline-block;
+	overflow: hidden;
+	/*position: fixed;  */ /* 이것을 활용하면 화면 고정*/ 
+	
+}
+
+#slider figure img{ /* 슬라이드 이미지*/
+	width: 20%; float: left;
+	
+}
+
+#slider figure{ /* 슬라이드 이미지 	figure*/
+	position: relative;
+	width: 500%;
+	margin: 0;
+	top: 0;
+	left: 0;
+	-webkit-animation: 10s slidy ease-in-out infinite;
+	animation: 10s slidy ease-in-out infinite;
+	
+}
+
+
+#maps{ /* 지도 박스*/
+	
+	width: 300px;
+	height: 100px;
+	margin: 0px 0px 0px 100px;
+	display: inline-block;
+	float: left;
+	
+	
+}
+
+
+
+#map1 { /* 지도 글*/
+	
+	height:150px;
+	background-image: url("../images/map00.png");
+	
+	opacity: 0.7;
+	
+	
+	
+	left:-20px;
+	width: 100%;
+	display: inline-block;
+	
+	float: left;
+	
+}
+
+.map2{
+	
+	width: 100%;
+	display: inline-block;
+	float: left;
+	font-weight: bold;
+	left:0px;
+	margin: 50px 0px 0px 0px;
+	
+}
+
+#map1 a{ /* 지도글 a링크*/
+	text-decoration:none;
+}
+
+#mainH{ /* 우측 호텔 메인페이지 박스*/
+	
+	
+	width: 1000px;
+	height: 1400px;
+	margin: 0px 0px 0px 100px;
+	display: inline-block;
+	 /*position: relative; */
+	
+	
+}
+
+.clear{
+	clear:both;/* float 흐름을 제거하는 역할을 한다. 그러므로 div간 잘못된 css적용을 막아줌 */
+}
+
+
+
+#mh{ /* 검색 결과 박스*/
+	display: inline-block;
+	width:1000px;
+	height: 50px;
+	
+}
+
+  .hh{  /* 검색결과 글꼴*/
+	box-sizing:border-box;
+	 
+	font-size: 20px;
+	font-weight:bold;
+	color:white;
+	height:30px;
+	
+	font-weight: bold;
+	display:inline-block;
+	margin-top: 20px; /* 보류 */
+	line-height:30px; /* 글자 높낮이 정하기*/
+	
+	
+} 
+
+#img1{ /* 첫번째 검색 결과물 정보*/
+	width:1000px;
+	height:250px;
+	
+	margin-top: 15px;
+
+	
+}
+
+.im1{
+	width: 200px;
+	height: 250px;
+	display: inline-block;
+	
+	float: left;
+}
+
+.op{ /* 첫번째 이미지 옆 라인*/
+	
+	display: inline-block;
+	width: 600px;
+	height: 250px;
+	float: left;
+	background: white;
+
+}
+
+.item_Line{/* 첫번째 이미지 두번 째 옆 라인*/
+	display: inline-block;
+	float: right;
+	width: 190px;
+	height: 250px;
+	
+	background: white;
+}
+
+
+.font{ /* 지역이름 폰트 */
+	font-weight: 300;
+	font-size: 15px;
+	
+}
+
+.font2{ /* 호텔이름 폰트*/
+	
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.avg{ /* 설명 */
+	font-weight:bold;
+	font-size: 25px;
+	display: inline-block;
+	color: #e283e2;
+}
+.avg2{
+	font-size: 18px;
+	line-height: 23px;
+}
+
+.item_H{ /* 첫줄 */
+	text-align: center;
+	display: block;
+	font-size: 22px;
+	font-weight: bold;
+	margin: 25px 0px 0px 0px;
+}
+.item_a{ /* 두번째*/
+	text-align: center;
+	display: block;
+	font-size: 22px;
+	font-weight: bold;
+	margin: 25px 0px 0px 0px;
+}
+.item_b{ /* 세번째 */
+	text-align: center;
+	display: block;
+	font-size: 22px;
+	font-weight: bold;
+	margin: 25px 0px 0px 0px;
+	
+}
+.item_c{ /* 네번째 */
+	width: 190px;
+	height: 50px;
+	text-align: center;
+	margin: 35px auto 0px;
+	display: inline-block;
+	font-size: 22px;
+	font-weight: bold;
+	cursor: pointer;
+	background-color: #fcbed0;
+}
+
+#page2{ /* 하단 페이지 숫자 박스*/
+	
+	width: 800px;
+	height: 40px;
+	text-align: center;
+	margin: 0px 0px 0px 630px;
+}
+
+/* 버튼 css 나중에 꾸민다*/
+
+.btn_h{ /* 하단 버튼*/
+	background-color: #697379;
+    color: #fff;
+    border: 1px solid #697379;
+     cursor:pointer;
+    text-decoration: none;
+        min-width: 36px;
+            height: auto;
+             font-size: 14px;
+                 line-height:.5;
+                     min-height: 36px;
+                     user-select: none;
+                         touch-action: manipulation;
+                             white-space: nowrap;
+                             vertical-align: middle;
+                                 text-overflow: ellipsis;
+                                     align-items: flex-start;
+            
+}
+
+#img_a{ /* 몰카 금지 등등 */
+	height: 50px;
+	border: 1px solid red;
+	margin: 0px 40px 0px 0px;
+	
+}
+
+
+
+
+
+#bt_f{ /*입력 버튼 */
+	width: 100px;
+	display:inline-block;
+	height: 40px;
+	
+	background-color: #f3728e;
+	cursor: pointer;
+}
+
+
+ 
+
+
+

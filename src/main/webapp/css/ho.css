@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+/* h_write.jsp ui , h_cont.jsp ui */
+#hWrite_wrap{
+	width:800px; height:690px;
+	border:1px solid blue; border-radius:15px;
+	box-shadow:15px 15px 15px #ccc;
+}
+#hWrite_wrap .hw_title{
+	width:140px; background-color:pink;
+	font-size:20px; text-align:center;
+	margin:20px 0px 0px 140px; border-radius:15px;
+	padding:10px;
+}
+#hw_t{
+	margin:25px 0px 0px 45px;
+}
+#hw_menu{
+	margin:43px 0px 0px 180px;
+}
+
+#wel_cont{ /* 수정 h_write.jsp 전체페이지*/
+	margin-left: 300px;
+}
+
+
+
+
+
+
+

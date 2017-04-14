@@ -1,0 +1,73 @@
+/*Structure*/
+header.sticky, header#plain{background: #1d508d;}
+footer a:hover{color:#3fb34f;}
+
+/*Buttons*/
+a.button_2, a.button, .button{background-color: #3fb34f;}
+a.button_2:hover, a.button:hover, .button:hover{background-color:#333;}
+a.download {color:#3fb34f;}
+a.download:before{color:#3fb34f;}
+a.button_plan{background-color:#333;}
+a.button_plan:hover{background-color:#3fb34f;}
+.short_info_grid p{background-color:#3fb34f;}
+  
+/*General links color*/
+a {color:#3fb34f;}
+a:hover,a:focus {color: #333;}
+
+/*Typography*/
+.main_title h2 strong, .main_title h3 strong {color:#333;}
+.main_title span em {background-color:#3fb34f;}
+
+.features #feat_1 h3, .features #feat_2 h3, .features #feat_3 h3{color:#333;}
+
+.main_title_left span em {background-color:#3fb34f;}
+
+/*Menu*/
+.main-menu ul ul,
+.main-menu ul ul li:hover > a {color:#3fb34f;}
+
+@media only screen and (max-width: 991px) {
+.main-menu ul li a:hover,
+a.show-submenu:hover,
+a.show-submenu:focus,
+a.show-submenu-mega:hover,
+a.show-submenu-mega:focus{color:#3fb34f !important;}	
+.main-menu ul ul,
+.main-menu ul .menu-wrapper {border-top: none;}
+}
+
+/*Content*/
+#search_bar{background:rgba(63,179,79,0.6);}
+
+.box_cat a i{color:#3fb34f;}
+.box_cat a:hover i{}
+
+.tabs nav li.tab-current {border: 2px solid #3fb34f;background-color:#3fb34f;}
+.tabs nav a {color: #3fb34f;}
+
+#subscribe_plan{background:#488dc8 url(../img/bg_subscribe.png) no-repeat left top;}
+
+#box_subscribe ul li a:hover{background:#3fb34f url(../img/not-checked-hover.svg) no-repeat 15px  center;}
+#box_subscribe ul li a.active{background:#3fb34f url(../img/checked.svg) no-repeat 15px  center;}
+
+.form_title h3 strong{background-color:#3fb34f;}
+
+body#login{background:#1d508d;}
+a.button_login, .button_login{border:2px solid #3fb34f;color:#3fb34f;}
+a.button_login:hover, .button_login:hover{background-color:#333;border:2px solid #333;}
+.box_login strong{background:#3fb34f url(../img/waves.png) no-repeat bottom left;}
+
+ul#cat_nav_blog li a:hover{color:#3fb34f;}
+
+/*Common*/
+ .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {background: #3fb34f;}
+.pagination > li > a,
+.pagination > li > span {color: #3fb34f;}
+
+#filter_tools ul li a#grid_icon:before, #filter_tools ul li a#list_icon:before, #filter_tools ul li a#map_icon:before{color:#3fb34f;}
+#filter_tools ul li a#grid_icon:hover:before, #filter_tools ul li a#list_icon:hover:before, #filter_tools ul li a#map_icon:hover:before{color:#333;}
+
+ul#tools_2 li a i, ul#tools_2 li form i{color:#3fb34f;}
+ul#tools_2 li a:hover{color:#3fb34f;}
+ul#tools_2 li form:hover{color:#3fb34f;}

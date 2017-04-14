@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+/*admin.css*/
+/*admin_login.jsp ui*/
+
+#aLogin_wrap{
+	width:700px;
+	height:500px;
+	border:1px solid green; 
+/* 	margin-left:auto;margin-right:auto; */
+	margin:100px auto;
+	border-radius:15px; box-shadow:10px 10px 10px #ccc;
+	background-position:top center;
+	background-image:url(../gallery/img_4.jpg);
+}
+#aLogin_wrap .aLogin_title{
+	width:190px; font-size:18px;
+    padding:5px; text-align:center;
+	border-radius:15px;
+	margin-top:170px;
+	margin-left:auto; margin-right:auto;
+}
+#aLogin_t{
+	margin:0px auto;
+	
+}
+#aLogin_t .aLogin_box{
+	height:50px; border-radius:10px;
+	font-weight:bold; border:1px solid #ccc;
+}
+.aLogin_box:hover{
+	cursor:hand; cursor:pointer;
+}
+

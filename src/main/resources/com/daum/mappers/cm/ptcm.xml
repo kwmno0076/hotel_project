@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Ptcm">
+ 
+ <!-- 포토게시판 저장 -->
+ <insert id="ptcm_in" parameterType="ptcm">
+  insert into ptcm values(pt_no_seq.nextval,#{pt_name},#{pt_title},#{pt_pwd},#{pt_cont},#{pt_file},#{ori_pt_file},0,sysdate)
+ </insert>
+ 
+ <!-- 검색전후 레코드 개수 -->
+ <select id="p_count" parameterType="ptcm" resultType="int">
+  select count(pt_no) from ptcm
+    <where>
+     <if test="find_field==''">
+     <!-- 검색 조건이 없어서 총레코드 개수 반환 -->
+     </if>
+     <if test="find_field=='pt_name'">
+     <!-- 검색조건이 제목인 경우 -->
+     pt_name like #{find_name}
+     </if>
+     <if test="find_field=='pt_title'">
+     <!-- 검색 조건이 제목인 경우 -->
+     pt_title like #{find_name}
+     </if>
+     <if test="find_field=='pt_cont'">
+     <!-- 검색 조건이 내용인 경우 -->
+     pt_cont like #{find_name}
+     </if>
+    </where>
+ </select>
+ 
+ <!-- 검색전후 목록 -->
+ <select id="p_list" parameterType="ptcm" resultType="ptcm">
+  select * from 
+  (select rowNum rNum, pt_no,pt_name,pt_title,pt_pwd,pt_cont,pt_file,ori_pt_file,pt_hit,pt_date from
+  (select * from ptcm
+  <where>
+  <if test="find_field==''">
+  	 <!-- 검색조건이 없는 경우는 총 레코드 개수 -->
+  	 </if>
+  	 <if test="find_field=='pt_name'">
+  	 <!-- 검색조건이 제목인 경우 -->
+  	 pt_name like #{find_name}
+  	 </if>
+  	 <if test="find_field=='pt_title'">
+  	 <!-- 검색조건이 제목인 경우 -->
+  	 pt_title like #{find_name}
+  	 </if>
+  	 <if test="find_field=='pt_cont'">
+  	 <!-- 검색조건이 내용인 경우 -->
+  	 pt_cont like #{find_name}
+  	 </if>
+  </where>
+  order by pt_no desc))
+  	where rNum&gt;=#{startrow} and rNum&lt;=#{endrow}
+ </select>
+ 
+ <!-- 내용보기 -->
+ <select id="ptCont" parameterType="int" resultType="ptcm">
+  select * from ptcm where pt_no=#{pt_no}
+ </select>
+ 
+ <!-- 조회수증가 -->
+ <update id="pthit" parameterType="int">
+  update ptcm set pt_hit=pt_hit+1 where pt_no=#{pt_no}
+ </update>
+ 
+ <!-- 게시판 수정 -->
+ <update id="ptcmEdit" parameterType="ptcm">
+  update ptcm set pt_name=#{pt_name},pt_title=#{pt_title},pt_cont=#{pt_cont},0,0  where pt_no=#{pt_no}
+ </update>
+ 
+ <!-- 게시판 삭제 -->
+ <delete id="ptcmdel" parameterType="int">
+  delete from ptcm where pt_no=#{pt_no}
+ </delete>
+ 
+ <!-- 댓글 개수 -->
+ <select id="ptcom_count" parameterType="int" resultType="int">
+  select count(pc_no) from ptcomment where pt_no=#{pt_no}
+ </select>
+ 
+ <!-- 댓글목록 -->
+ <select id="ptcom_list" parameterType="int" resultType="ptcom">
+  select * from ptcomment where pt_no=#{pt_no} order by pc_no asc
+ </select>
+ 
+ <!-- 댓글 저장 -->
+ <insert id="ptcom_in" parameterType="ptcom">
+  insert into ptcomment values(pt_no_seq.nextval,#{pc_name},#{pc_cont},sysdate,#{pt_no})
+ </insert>
+ 
+ <!-- 댓글 삭제 -->
+ <delete id="ptcom_del" parameterType="int">
+  delete from ptcomment where pc_no=#{pc_no}
+ </delete>
+ 
+ <!-- 댓글 수정 -->
+ <update id="ptcom_edit" parameterType="ptcom">
+  update ptcomment set pc_cont=#{pt_cont} where pt_no=#{pt_no}
+ </update>
+ 
+
+</mapper>

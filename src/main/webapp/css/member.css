@@ -1,0 +1,146 @@
+/* @import url(https://fonts.googleapis.com/css?family=Roboto:300); */
+@CHARSET "UTF-8";
+
+#back{
+	background-image:url('../images/tm03.png');
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.login-page {
+  width: 360px;
+  padding: 8% 0 0 ;
+  margin: auto;
+}
+.form {
+	opacity:5;
+  position: relative;
+/*   z-index: 1; */
+/*   background: #FFFFFF; */
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4), 0 5px 5px 0 rgba(0, 0, 0, 0.4);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+#button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+.top{
+	
+	color:#B3B3B3;
+	font-size:20px;	
+}
+.form .message ,.form .message2,.form .message3,.form .message4{
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a ,.form .message2 a,.form .message3 a,.form .message4 a{
+  color: #4CAF50;
+  text-decoration: none;
+}
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.container .info {
+  margin: 50px auto;
+  text-align: center;
+}
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+.container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+.container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+.container .info span .fa {
+  color: #EF3B3A;
+}
+body {
+  background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+  background: -moz-linear-gradient(right, #76b852, #8DC26F);
+  background: -o-linear-gradient(right, #76b852, #8DC26F);
+  background: linear-gradient(to left, #76b852, #8DC26F);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
+header{
+	width:100%; height:80px;
+/* 	border:1px solid red; */
+}
+
+.logo{
+	width:100px;
+	float:left;
+	margin:10px 0px 0px 90px;
+}
+
+.menu{
+	float:left;
+	margin:5px; 
+/* 	border:1px solid blue; */
+	padding:20px 60px 0px 0px;
+}
+
+.menu ul{
+	list-style:none;/*수직 목록 앞 점 마커를 없앰*/
+	font-family:"굴림체"; font-size:20px;
+	font-weight:bold; /*글자를 진하게 표현*/
+	color:#ffffff;
+	margin:0px;
+}
+
+.menu ul li{
+	float:left; /* 수직 목록을 수평 목록으로*/
+	margin:0px 10px;
+}
+
+.menu a{
+	display:block;/*a 태그가 인라인 요소 태그이다. 이것을 블록요소로 바꿈*/
+	height:20px; padding:10px;/*상하 좌우 안여백을 동시에 처리*/
+	text-decoration:none;/*하이퍼링크 된곳 밑줄선 사라지게함*/
+	color:#c0c0c0;
+}

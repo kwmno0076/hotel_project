@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/* Your custom styles */
+
+/*Structure*/
+header.sticky, header#plain{background: #4e1438;}
+footer a:hover{color:#5a842e;}
+
+/*Buttons*/
+a.button_2, a.button, .button{background-color:#5a842e;}
+a.button_2:hover, a.button:hover, .button:hover{background-color:#333;}
+a.download {color:#5a842e;}
+a.download:before{color:#5a842e;}
+a.button_plan{background-color:#333;}
+a.button_plan:hover{background-color:#5a842e;}
+.short_info_grid p{background-color:#5a842e;}
+  
+/*General links color*/
+a {color:#5a842e;}
+a:hover,a:focus {color: #333;}
+
+/*Typography*/
+.main_title h2 strong, .main_title h3 strong {color:#eb1d5d;}
+.main_title span em {background-color:#eb1d5d;}
+
+.main_title_left span em {background-color:#eb1d5d;}
+
+/*Menu*/
+.main-menu ul ul,
+.main-menu ul ul li:hover > a {color:#5a842e;}
+
+@media only screen and (max-width: 991px) {
+.main-menu ul li a:hover,
+a.show-submenu:hover,
+a.show-submenu:focus,
+a.show-submenu-mega:hover,
+a.show-submenu-mega:focus{color:#5a842e !important;}	
+.main-menu ul ul,
+.main-menu ul .menu-wrapper {border-top: none;}
+}
+
+/*Content*/
+#search_bar{background:rgba(140,24,77,0.6);}
+
+.box_cat a i{color:#5a842e;}
+.box_cat a:hover i{}
+
+.tabs nav li.tab-current {border: 2px solid #5a842e;background-color:#5a842e;}
+.tabs nav a {color: #5a842e;}
+
+#subscribe_plan{background:#8c184d url(../img/bg_subscribe.png) no-repeat left top;}
+#box_subscribe ul li a:hover{background:#5a842e url(../img/not-checked-hover.svg) no-repeat 15px  center;}
+#box_subscribe ul li a.active{background:#5a842e url(../img/checked.svg) no-repeat 15px  center;}
+
+.form_title h3 strong{background-color:#5a842e;}
+
+body#login{background:#4e1438;}
+a.button_login, .button_login{border:2px solid #5a842e;color:#5a842e;}
+a.button_login:hover, .button_login:hover{background-color:#333;border:2px solid #333;}
+.box_login strong{background:#5a842e url(../img/waves.png) no-repeat bottom left;}
+
+/*Common*/
+.pagination > li > a,
+.pagination > li > span {color: #5a842e;}
+
+#filter_tools ul li a#grid_icon:before, #filter_tools ul li a#list_icon:before, #filter_tools ul li a#map_icon:before{color:#5a842e;}
+#filter_tools ul li a#grid_icon:hover:before, #filter_tools ul li a#list_icon:hover:before, #filter_tools ul li a#map_icon:hover:before{color:#333;}
+
+ul#tools_2 li a i, ul#tools_2 li form i{color:#5a842e;}
+ul#tools_2 li a:hover{color:#5a842e;}
+ul#tools_2 li form:hover{color:#5a842e;}

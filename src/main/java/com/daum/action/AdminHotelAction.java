@@ -108,7 +108,10 @@ public class AdminHotelAction {
 			
 			//호텔 금액
 			int h_price_room = Integer.parseInt(multi.getParameter("h_price_room"));
-																						
+			//호텔 금액
+			
+			int h_price_room2 = Integer.parseInt(multi.getParameter("h_price_room2"));
+													
 			String h_option = multi.getParameter("h_option"); // 호텔 옵션명
 
 			int h_price_option = Integer.parseInt(multi.getParameter("h_price_option")); // 호텔 옵션 금액 
@@ -165,6 +168,7 @@ public class AdminHotelAction {
 			h.setH_room(h_room);
 			h.setH_room_ok(h_room_ok);
 			h.setH_price_room(h_price_room);
+			h.setH_price_room2(h_price_room2);
 			h.setH_option(h_option);
 			h.setH_price_option(h_price_option);
 			
@@ -339,6 +343,7 @@ public class AdminHotelAction {
 			int h_room_ok = Integer.parseInt(multi.getParameter("h_room_ok")); // 방 , 룸 갯수
 			
 			int h_price_room = Integer.parseInt(multi.getParameter("h_price_room")); // 금액
+			int h_price_room2 = Integer.parseInt(multi.getParameter("h_price_room2"));
 			String h_option = multi.getParameter("h_option").trim(); // 호텔 옵션
 			int h_price_option = Integer.parseInt(multi.getParameter("h_price_option")); // 옵션 금액
 			
@@ -406,6 +411,7 @@ public class AdminHotelAction {
 				h.setH_room(h_room);
 				h.setH_room_ok(h_room_ok);
 				h.setH_price_room(h_price_room);
+				h.setH_price_room2(h_price_room2);
 				h.setH_option(h_option);
 				h.setH_price_option(h_price_option);
 			

@@ -243,7 +243,7 @@ A:hover {
 							%>
 							<span id="able"><%=sNum%></span> /<span id="all">${ok_num.h_room_ok}</span>
 							&nbsp;&nbsp;<a
-								href="reserve2.kkc?day=<%=newLine %>&date=<%=iUseDate2 %>&h_no=${h_no}&reserve_roomfind=1"
+								href="reserve2.kkc?day=<%=newLine %>&resdate=<%=iUseDate2 %>&h_no=${h_no}&reserve_roomfind=1"
 								id="res_go">예약하기</a><br />
 
 							<%

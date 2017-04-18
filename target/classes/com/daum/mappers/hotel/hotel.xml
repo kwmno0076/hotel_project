@@ -9,14 +9,14 @@
 	<!-- 자료실 저장 -->
 	<insert id="h_in" parameterType="hotel">
 		insert into tbl_Hotel values(h_no_seq.nextval,#{h_name},#{h_phone},
-		#{h_title},#{h_room},#{h_room_ok}, #{h_price_room},#{h_option},#{h_price_option},#{h_local},#{h_cont},#{h_file},0,sysdate)
+		#{h_title},#{h_room},#{h_room_ok}, #{h_price_room},#{h_price_room2},#{h_option},#{h_price_option},#{h_local},#{h_cont},#{h_file},0,sysdate)
 	</insert>
 
 
 	<!-- 검색전후 목록 -->
 	<select id="hlist" resultType="hotel" parameterType="hotel">
 		select * from
-		(select rowNum rNum,h_no,h_name, h_phone, h_title,h_room, h_room_ok , h_price_room, h_option, h_price_option, h_local, h_cont, h_file,
+		(select rowNum rNum,h_no,h_name, h_phone, h_title,h_room, h_room_ok , h_price_room, h_price_room2, h_option, h_price_option, h_local, h_cont, h_file,
 		h_hit,h_date from
 		(select * from tbl_Hotel
 		<where>
@@ -81,7 +81,7 @@
 	<!-- 자료실 수정 -->
 	<update id="hedit" parameterType="hotel">
 		update tbl_Hotel set h_name=#{h_name},h_phone=#{h_phone},
-		h_title=#{h_title},	h_room=#{h_room}, h_room_ok=#{h_room_ok} , h_price_room=#{h_price_room},h_option=#{h_option},h_price_option=#{h_price_option},
+		h_title=#{h_title},	h_room=#{h_room}, h_room_ok=#{h_room_ok} , h_price_room=#{h_price_room}, h_price_room=#{h_price_room2}, h_option=#{h_option},h_price_option=#{h_price_option},
 		h_local=#{h_local},h_cont=#{h_cont},
 		h_file=#{h_file} where h_no=#{h_no}
 	</update>

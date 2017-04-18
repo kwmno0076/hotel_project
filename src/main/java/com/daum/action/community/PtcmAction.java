@@ -45,7 +45,7 @@ public class PtcmAction {
 	public ModelAndView ptcm_write_ok(@ModelAttribute PtcmBean pb, HttpServletRequest request, HttpSession session) throws Exception{
 		
 		
-		String savePath="D:/Spring_program/STS_Project/project/src/main/webapp/upload";
+		String savePath="D:/Spring_program/STS_Project/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/project/upload";
 		//이진파일 업로드 서버 경로
 		
 		int fileSize=5*1024*1024;
@@ -110,7 +110,7 @@ public class PtcmAction {
 	
 	//목록보기
 	@RequestMapping("/ptcm_list")
-	public String bbs_list(Model listM,
+	public String ptcm_list(Model listM,
 			HttpServletRequest request,
 			@ModelAttribute PtcmBean pb) throws Exception{
 		
@@ -211,7 +211,7 @@ public class PtcmAction {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out=response.getWriter();
 		
-		String savePath="D:/Spring_program/STS_Project/project/src/main/webapp/upload";
+		String savePath="D:/Spring_program/STS_Project/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/project/upload";
 		//이진파일 업로드 서버 경로
 		int fileSize=5*1024*1024;
 		
@@ -284,8 +284,8 @@ public class PtcmAction {
 	}
 		
 		//게시판 삭제
-		@RequestMapping("/ptcm_del_ok")
-		public ModelAndView ptcm_del_ok(@RequestParam("pt_no") int pt_no, @RequestParam("del_pwd") String del_pwd,
+		@RequestMapping("/ptcm_del")
+		public ModelAndView ptcm_del(@RequestParam("pt_no") int pt_no, @RequestParam("del_pwd") String del_pwd,
 				HttpServletRequest request, HttpServletResponse response) throws Exception{
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out= response.getWriter();

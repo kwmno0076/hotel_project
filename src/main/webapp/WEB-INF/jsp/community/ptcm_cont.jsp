@@ -124,13 +124,10 @@ $(document).ready(function(){
  <%-- 댓글 입력폼 --%>
  <form method="post" action="ptcomment_ok.kkc" onsubmit="return ptcom_check();">
   <input type="hidden" name="pt_no" value="${p.pt_no}" />
-  <input type="hidden" name="pc_name" value="${p.pt_name}" />
+  <input type="hidden" name="pc_name" value="${id}" />
   <input type="hidden" name="page" value="${page}" />
   
   <table id="comment">
-   <tr>
-    <th colspan="2" class="cth1">댓글수: ${ptcom_count} 개</th>
-   </tr>
    <tr>
     <th>
      <c:if test="${id!=null}">
@@ -155,23 +152,24 @@ $(document).ready(function(){
   <div class="clear"></div>
   
  <%-- 댓글 목록 --%>
- <table id="ptcomment_cont" border="1">
+ <table id="ptcomment_cont">
   <c:if test="${!empty pclist}">
    <tr>
     <th colspan="3">댓글목록</th>
+    <th class="cth1">댓글수: ${ptcom_count} 개</th>
    </tr>
    <c:forEach var="pc" items="${pclist}">
     <tr>
-     <th>${pc.pc_name}</th>
-     <td class="ctd1">${fn:substring(pc.pc_date,0,16)}</td>
+     <th class="th3">${pc.pc_name}</th>
+     <td class="ctd1" colspan="2">${fn:substring(pc.pc_date,0,16)}</td>
      <td class="ctd2">
-      <c:if test="${id == p.pt_mem_id}">
+      <c:if test="${pc.pc_name == id}">
        <a href="javascript:ptcom_del_ok(${pc.pc_no},${p.pt_no},${page});" onfocus="this.blur();">삭제</a>수정
       </c:if>
      </td>
     </tr>
     <tr>
-     <td colspan="3" class="ctd3">${pc.pc_cont}</td>
+     <td colspan="4" class="ctd3">${pc.pc_cont}</td>
     </tr>
    </c:forEach>
   </c:if>

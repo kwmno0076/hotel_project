@@ -4,7 +4,7 @@ public class CmBean {
 
 	@Override
 	public String toString() {
-		return "CmBean [cm_no=" + cm_no + ", cm_mem_id=" + ", cm_name=" + cm_name + ", cm_title=" + cm_title
+		return "CmBean [cm_no=" + cm_no  + ", cm_name=" + cm_name + ", cm_title=" + cm_title
 				+ ", cm_pwd=" + cm_pwd + ", cm_cont=" + cm_cont + ", cm_hit=" + cm_hit + ", cm_date=" + cm_date
 				+ ", startrow=" + startrow + ", endrow=" + endrow + ", find_field=" + find_field + ", find_name="
 				+ find_name + "]";

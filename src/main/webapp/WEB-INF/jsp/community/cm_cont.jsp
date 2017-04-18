@@ -21,9 +21,9 @@
  <div class="clear"></div><%-- 빈공백 제거 --%>
  <hr/>
  
- <div id="imgs">
-  <img src="./images/tm01.jpg" width="200" height="400">
- </div>
+<!--  <div id="imgs"> -->
+<!--   <img src="./images/tm01.jpg" width="200" height="400"> -->
+<!--  </div> -->
  
  <div id="container_cm2">
   <table id="table" >
@@ -49,21 +49,22 @@
   </table>
   
   <c:if test="${c.cm_name == id}">
+  <div id="btn1_div">
    <input type="button" value="삭제" class="btn1" onclick="location='cm_cont.kkc?no=${c.cm_no}&page=${page}&state=del';" />
    <input type="button" value="수정" class="btn1" onclick="location='cm_cont.kkc?no=${c.cm_no}&page=${page}&state=edit';" />
+  </div>
   </c:if>
  </div><%-- table 끝 --%>
+ 
+ <div class="clear"></div>
  
  <%-- 댓글 입력폼 --%>
  <form method="post" action="comment_ok.kkc" onsubmit="return com_check();">
   <input type="hidden" name="cm_no" value="${c.cm_no}" />
-  <input type="hidden" name="c_name" value="${c.cm_name}" />
+  <input type="hidden" name="c_name" value="${id}" />
   <input type="hidden" name="page" value="${page}" />
   
   <table id="comment">
-   <tr>
-    <th colspan="2" class="cth1">댓글수: ${com_count} 개</th>
-   </tr>
    <tr>
     <th>
      <c:if test="${id!=null}">
@@ -86,23 +87,24 @@
  </form>
  
  <%-- 댓글 목록 --%>
- <table id="comment_cont" border="1">
+ <table id="comment_cont">
   <c:if test="${!empty cmlist}">
    <tr>
-    <th colspan="3">댓글목록</th>
+    <th colspan="3" class="th3">댓글목록</th>
+    <th class="cth1">댓글수: ${com_count} 개</th>
    </tr>
    <c:forEach var="cb" items="${cmlist}">
     <tr>
-     <th>${cb.c_name}</th>
-     <td class="ctd1">${fn:substring(cb.c_date,0,16)}</td>
+     <th class="th3">${cb.c_name}</th>
+     <td class="ctd1" colspan="2" >${fn:substring(cb.c_date,0,16)}</td>
      <td class="ctd2">
-      <c:if test="${id == c.cm_mem_id}">
-       <a href="javascript:com_del_ok(${cb.c_no},${c.cm_no},${page});" onfocus="this.blur();">삭제</a>수정
+      <c:if test="${cb.c_name == id}">
+       <a href="javascript:com_del_ok(${cb.c_no},${c.cm_no},${page});" onfocus="this.blur();">삭제</a>
       </c:if>
      </td>
     </tr>
     <tr>
-     <td colspan="3" class="ctd3">${cb.c_cont}</td>
+     <td colspan="4" class="ctd3">${cb.c_cont}</td>
     </tr>
    </c:forEach>
   </c:if>

@@ -99,5 +99,6 @@
  <delete id="com_del" parameterType="int">
   delete from comment1 where c_no=#{c_no}
  </delete>
+ 
 
 </mapper>

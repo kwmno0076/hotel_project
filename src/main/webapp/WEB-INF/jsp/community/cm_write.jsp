@@ -30,9 +30,9 @@ function aaa(){
  <div class="clear"></div><%-- 빈공백 제거 --%>
  <hr/>
  
- <div id="imgs">
-  <img src="./images/tm01.jpg" width="200" height="400">
- </div>
+<!--  <div id="imgs"> -->
+<!--   <img src="./images/tm01.jpg" width="200" height="400"> -->
+<!--  </div> -->
  
  <div id="table_div">
   <table id="notice">

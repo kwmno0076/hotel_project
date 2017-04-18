@@ -42,10 +42,7 @@
      <li>제목:<a href="ptcm_cont.kkc?no=${p.pt_no}&page=${page}&state=cont">${p.pt_title}</a></li>
      <li>작성자:<a href="ptcm_cont.kkc?no=${p.pt_no}&page=${page}&state=cont">${p.pt_name}</a></li>
      <li>조회수:<a href="ptcm_cont.kkc?no=${p.pt_no}&page=${page}&state=cont">${p.pt_hit}</a></li>
-     <li>작성날짜:<a href="ptcm_cont.kkc?no=${p.pt_no}&page=${page}&state=cont">${p.pt_date}</a></li>
-
-
-    </ul>
+     <li>작성날짜:<a href="ptcm_cont.kkc?no=${p.pt_no}&page=${page}&state=cont">${p.pt_date}</a></li>    </ul>
    </div><%--4칸짜리안에 작은틀 끝 --%>
    </c:forEach>
   </c:if>

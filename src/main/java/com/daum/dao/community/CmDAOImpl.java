@@ -69,5 +69,6 @@ public class CmDAOImpl implements CmDAO {
 	public void com_del(int c_no) {
 		this.sqlSession.delete("com_del",c_no);
 	}//댓글 삭제
+
 	
 }

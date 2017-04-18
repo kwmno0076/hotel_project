@@ -35,11 +35,10 @@ public class AdminAction {
 			HttpSession session) throws Exception{
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out=response.getWriter();
-		System.out.println(ab.getAdmin_id());
 
 		AdminBean dm=this.adminService.adminCheck(ab.getAdmin_id());
 		//관리자 아이디에 대한 관리자 정보를 오라클로 부터 가져온다.
-		System.out.println("d11561");
+		
 		//System.out.println(dm.getAdmin_name());
 
 		if(dm==null){

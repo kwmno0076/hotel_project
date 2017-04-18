@@ -206,31 +206,19 @@ ul, li{list-style:none;}
 
 
 
-
-
-
-
-
-/*네비게이션 전체 영역 제어*/
-
-.nav {
-	height:40px;
-	list-style: none;
-	width:100%;
-	background: #1478CD;
-	font-size: 13px;
-	border:0px solid black;
-}
-
-
-
 /*주메뉴 영역 제어*/
 .topnav{
 	text-align:center;
-	width:100px;
+	width:150px;
 	height:20px;
 	cursor:pointer;
 	font-weight:bold;
-	border:0px solid red;
+	border:1px solid red;
 }
 
+.subnav{
+	display:none;
+	margin-top:100px;
+	float:left;
+	border:1px solid black;
+}

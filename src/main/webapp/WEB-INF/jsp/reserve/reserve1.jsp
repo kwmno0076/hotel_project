@@ -41,28 +41,28 @@
 
 <style>
 A:link {
-	font-size: 9pt;
+	font-size: 15pt;
 	font-family: "돋움";
 	color: #556815;
 	text-decoration: none;
 }
 
 A:visited {
-	font-size: 9pt;
+	font-size: 20pt;
 	font-family: "돋움";
 	color: #000000;
 	text-decoration: none;
 }
 
 A:active {
-	font-size: 9pt;
+	font-size: 20pt;
 	font-family: "돋움";
 	color: #5c322e;
 	text-decoration: none;
 }
 
 A:hover {
-	font-size: 9pt;
+	font-size: 20pt;
 	font-family: "돋움";
 	color: #5c322e;
 	text-decoration: none;

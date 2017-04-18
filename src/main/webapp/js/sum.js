@@ -13,6 +13,7 @@ function PriceSum(){
 
 	return sumPrice;
 }
+
 //예약 총 결제정보
 function allPriceSum(){
 	
@@ -28,47 +29,42 @@ function allPriceSum(){
 	}
 	
 	var price=sumprice;	
-	
 	var price_option= tb.rows[1].cells[4].outerText;
-	
-	var ddd= $(caption).childrn("thead").childnd("th").eq(3);
-	
-	
 	price_option=price_option.split('원');
 	price_option=parseInt(price_option);
 	
-	alert($("#price_option").val());
+	
 		
 	var sum= price + price_option;
 	
-	var text="<input type='hidden' name='r_price' class='r_price' size='3' readonly='readonly' value="+sum;
+	var text="<input type='hidden' name='reserve_price' class='reserve_price' size='3' readonly='readonly' value="+sum;
 	text=text+">"+sum;
 	return text;
 		
 }
-/*function confirmPrice(){
+function confirmPrice(){
 	var tb=document.getElementById("resconfirm");
 	var form=document.getElementById("resok");
 	
-	var cp=tb.rows[1].cells[8].outerText;
+	var cp=tb.rows[1].cells[5].outerText;
 	cp=cp.split('원');
 	cp=parseInt(cp);
 	
-	var allprice=document.getElementById("r_price");
+	var allprice=document.getElementById("reserve_price");
 	
 	allprice.value(cp);	
-}*/
+}
 //예약정보 전송
-/*$(document).ready(function(){
+$(document).ready(function(){
 
 	var tb=document.getElementById("resconfirm");
-	var allprice=tb.rows[1].cells[8].outerText;
+	var allprice=tb.rows[1].cells[5].outerText;
 	allprice=allprice.split('원');
 	allprice=parseInt(allprice);
 	
-	$("#r_price").val(allprice);
+	$("#reserve_price").val(allprice);
 	
 	$("#next").click(function(){
 		$("#resok").submit();
 	});
-});*/
+});

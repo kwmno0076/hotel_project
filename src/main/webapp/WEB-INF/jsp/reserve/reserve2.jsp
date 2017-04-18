@@ -52,7 +52,7 @@
 	function priceCheck() {
 
 		form.p1.value = $("#aa").val();
-		form.p2.value = $('#bb').val();
+		form.p2.value = $('#price_option').val();
 
 		form.p3.value = parseInt(form.p1.value) + parseInt(form.p2.value);
 		
@@ -173,7 +173,7 @@
 			
 				
 			
-			<form name="form" method="post" action="reserve3.kkc?day=${day}&date=${date}&h_no=${h_no}&reserve_roomfind=${roomfind}">
+			<form name="form" method="post" action="reserve3.kkc?day=${day}&resdate=${resdate}&h_no=${h_no}&reserve_roomfind=${roomfind}">
 			
 			
 				<div>
@@ -200,7 +200,7 @@
 					</div>
 
 					<div>
-						<select id="bb" name="bb" onChange="priceCheck()" class="room">
+						<select id="price_option" name="price_option" onChange="priceCheck()" class="room">
 							<option value="0" selected="selected">선택</option>
 							<option value="${ho_info[0].h_price_option}">${ho_info[0].h_option} +${ho_info[0].h_price_option}원</option>
 <!-- 							<option value="15000">입욕제 +15000원</option> -->
@@ -250,7 +250,7 @@
 					<td style="font-weight: bold" colspan=3>
 					
 						<div style="float: left;">
-							${fn:substring(date,0,4)}년${fn:substring(date,4,6)}월${fn:substring(date,6,8)}일 부터 
+							${fn:substring(resdate,0,4)}년${fn:substring(resdate,4,6)}월${fn:substring(resdate,6,8)}일 부터 
 
 							<select name="selday" id="selday">
 								<option value="0">기간 선택</option>
@@ -286,6 +286,36 @@
 						<div style="clear: both"></div>
 					</td>
 				</tr>
+					< <tr>
+					<th class="Tsubj">이름</th>
+					<td colspan=3><input type="text" name="reserve_username" id="r_name" size="22" required/> * <span
+						style="font-weight: bold; color: #B70D0D">입금자명과 동일</span>하게
+						입력해주세요.</td>
+				</tr> 
+				 <tr>
+					<th class="Tsubj">연락처</th>
+					<td colspan=3><input type="text" name="reserve_addr" id="r_addr" size="22" required/>
+						&nbsp;연락/문자수신이 가능한 핸드폰 번호를 남겨주세요.</td>
+				</tr>  
+					
+					
+					<tr>
+					<th class="qq">비밀번호</th>
+					<td colspan=3><input type="password" name="reserve_pwd" id="r_respwd" size="22" required/> &nbsp;* 꼭 기억해라 <span
+						style="color: #B70D0D">예약확인</span>이 가능하다.<span style="color: #B70D0D">(숫자 4자리이상)</span></td>
+					</tr> 
+					
+					<tr>
+					<th class="">결제방법</th>
+					<td colspan=3><input type="radio" name="reserve_payment" id="reserve_payment" size=22 value="B" checked/>무통장입금 (계좌이체)
+					<input type="radio" name="reserve_payment" id="reserve_payment" value="C" size=22 />카드결제</td>
+				</tr>
+			
+				
+				
+				
+				
+				
 				</table>
 				
 
@@ -307,13 +337,8 @@
 							maxlength="50" readonly="readonly"/>
 					</h2>
 				</div> 
-					<table>
-					<tr>
-					<th class="qq">비밀번호</th>
-					<td colspan=3><input type="password" name="reserve_pwd" id="r_pwd" size="22" required/> &nbsp;* 꼭 기억해라 <span
-						style="color: #B70D0D">예약확인</span>이 가능하다.<span style="color: #B70D0D">(숫자 4자리이상)</span></td>
-					</tr>
-				</table>
+				
+				
 					
 				<div class="result">
 					<input id="result" type="submit" value="결제하기" />

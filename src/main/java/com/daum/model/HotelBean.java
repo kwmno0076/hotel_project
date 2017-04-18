@@ -23,6 +23,7 @@ public class HotelBean {
 	private String h_room;
 	private int h_room_ok;
 	private int h_price_room;
+	private int h_price_room2;
 	private String h_option;
 	private int h_price_option;
 	private String h_bank;
@@ -93,6 +94,14 @@ public class HotelBean {
 	
 	
 	
+	
+	
+	public int getH_price_room2() {
+		return h_price_room2;
+	}
+	public void setH_price_room2(int h_price_room2) {
+		this.h_price_room2 = h_price_room2;
+	}
 	
 	public int getH_room_ok() {
 		return h_room_ok;

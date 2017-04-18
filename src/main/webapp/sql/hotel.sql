@@ -25,7 +25,8 @@ create table adminT(
   ,h_title varchar2(100) constraint h_title_nn not null -- 호텔이름
   ,h_room varchar2(100) -- 방이름
   ,h_room_ok number(20) -- 방,룸 수
-   ,h_price_room number(38)-- 방 금액
+   ,h_price_room number(38)-- 평일가 방 금액
+   ,h_price_room2 number(38) -- 주말가 방금액
   ,h_option varchar2(100) -- 호텔 추가 옵션
   ,h_price_option number(38)-- 옵션 금액
   ,h_local varchar2(300) constraint h_local_nn not null -- 주소

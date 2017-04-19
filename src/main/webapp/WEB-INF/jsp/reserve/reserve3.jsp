@@ -4,9 +4,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<jsp:include page="../include/header.jsp" />
 
-	<link rel="stylesheet" type="text/css" href="./css/community/cm_cont.css" />
+<jsp:include page="../include/header.jsp" />
 
 	<c:set var="date" value="<%=new Date() %>" />
 	<form id="resok" method="post" action="reserveOk.kkc?day=${day}&resdate=${resdate }&selday=${selday}&h_no=${h_no}&reserve_roomfind=${roomfind}&state=${payment}&username=${username}&reserve_addr=${addr}&respwd=${respwd}">

@@ -30,8 +30,6 @@ function allPriceSum(){
 	
 	var price=sumprice;	
 	var price_option= tb.rows[1].cells[4].outerText;
-	
-
 	price_option=price_option.split('원');
 	price_option=parseInt(price_option);
 	

@@ -18,9 +18,9 @@ hr{
 }
 #two{ /* 우측 메인 이미지 전채*/
  	
-	width: 1000px;
+	width: 900px;
 	height: 800px;
-	margin: 0px 0px 0px 50px;
+/* 	margin: 0px 0px 0px 50px; */
 	display: inline-block;
 	
 }
@@ -34,11 +34,12 @@ hr{
 	margin: 0px 0px 0px 20px;
 }	
 
-#sex{
+#right_box{
 	border: 1.5px solid #626262;
 	display: inline-block;
 	position: absolute;
-	width: 520px;
+	width: 600px;
+	margin-left:20px;
 }
 
 .room { 
@@ -90,13 +91,14 @@ border: 1px solid #999; border-radius: 0px; /* iOS 둥근모서리 제거 */
 /* 	border: 1px solid red; */
 	width: 180px;
 	height: 40px;
-	float:right;
+/* 	float:right; */
 	background-color: #fbc5fc;
 	font-weight: bold;
 	font-size: 12px;
 	font-family: fantasy;
 	color: #000000;
 	margin-top: 10px;
+	margin-left:650px;
 }
 
 #bank{
@@ -146,6 +148,10 @@ border: 1px solid #999; border-radius: 0px; /* iOS 둥근모서리 제거 */
 	margin:15px 0px 0px 100px; 
 	background-color: #f3728e;
 	cursor: pointer;
+}
+
+#sodyd{
+	
 }
 
 

@@ -48,7 +48,8 @@ create table adminT(
  
  select * from tbl_hotel order by h_no desc;
  
-
+ select * from tbl_hotel
+ 
  create sequence h_no_seq
  start with 1 --1부터 시작
  increment by 1 --1씩증가 옵션

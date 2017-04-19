@@ -59,7 +59,7 @@
 	}
 </script>
 
-<- <script type="text/javascript">
+<script type="text/javascript">
 	function bankDisplay() {
 
 		form.bank2.value=$("#selectbank").val();
@@ -106,61 +106,21 @@
 			<div id=re_h>
 				<%-- 슬라이더 라인 --%>
 
-				<ul class="bxslider">
-					<%-- 슬라이더 --%>
+				<div class="bxslider">
+	  <c:forTokens var="ima" items="${ho_info[0].h_file}" delims="," varStatus="sts">	  
+	 	 <c:if test="${!empty ho_info[0].h_file}">
+        	<a href="./upload/${ima}"><img src="./upload/${ima}" /></a>
+      	</c:if>      
+      </c:forTokens>
+       </div>
 
-					<li><a href="./h_photo.kkc"><img
-							src="./images/hotel01.jpg" /> </a></li>
-					<li><a href="./h_photo.kkc"><img
-							src="./images/hotel02.jpg" /> </a></li>
-					<li><a href="./h_photo.kkc"><img
-							src="./images/hotel03.jpg" /> </a></li>
-					<li><a href="./h_photo.kkc"><img
-							src="./images/hotel04.jpg" /> </a></li>
-					<li><a href="./h_photo.kkc"><img
-							src="./images/hotel05.jpg" /> </a></li>
-					<li><a href="./h_photo.kkc"><img
-							src="./images/hotel06.jpg" /> </a></li>
-					<li><a href="./h_photo.kkc"><img
-							src="./images/hotel07.jpg" /> </a></li>
-					<li><a href="./h_photo.kkc"><img
-							src="./images/hotel01.jpg" /> </a></li>
-					<li><a href="./h_photo.kkc"><img
-							src="./images/hotel04.jpg" /> </a></li>
-					<li><a href="./h_photo.kkc"><img
-							src="./images/hotel05.jpg" /> </a></li>
-					<li><a href="./h_photo.kkc"><img
-							src="./images/hotel06.jpg" /> </a></li>
-					<li><a href="./h_photo.kkc"><img
-							src="./images/hotel02.jpg" /> </a></li>
-
-				</ul>
-
-				<div id="test">
-					<a data-slide-index="0" href=""><img src="./images/hotel01.jpg"
-						class="test" /></a> <a data-slide-index="1" href=""><img
-						src="./images/hotel02.jpg" class="test" /></a> <a data-slide-index="2"
-						href=""><img src="./images/hotel03.jpg" class="test" /></a> <a
-						data-slide-index="3" href=""><img src="./images/hotel04.jpg"
-						class="test" /></a> <a data-slide-index="4" href=""><img
-						src="./images/hotel05.jpg" class="test" /></a> <a data-slide-index="5"
-						href=""><img src="./images/hotel06.jpg" class="test" /></a>
-						
-						<a data-slide-index="6"
-						href=""><img src="./images/hotel07.jpg" class="test" /></a>
-						<a data-slide-index="7"
-						href=""><img src="./images/hotel01.jpg" class="test" /></a>
-						<a data-slide-index="8"
-						href=""><img src="./images/hotel04.jpg" class="test" /></a>
-						<a data-slide-index="9"
-						href=""><img src="./images/hotel05.jpg" class="test" /></a>
-						<a data-slide-index="10"
-						href=""><img src="./images/hotel06.jpg" class="test" /></a>
-						<a data-slide-index="11"
-						href=""><img src="./images/hotel02.jpg" class="test" /></a>
-						
-
-				</div>
+		<div id="test">
+      <c:forTokens var="ima" items="${ho_info[0].h_file}" delims="," varStatus="sts">
+      <c:if test="${!empty ho_info[0].h_file}">
+       <a data-slide-index="ima" href=""><img src="./upload/${ima}" class="test"/></a>
+      </c:if>
+      </c:forTokens>
+      </div>
 
 
 				<a href="./h_photo.kkc"><button name="객실사진 바로가기" id="btn_i">객실사진보기</button></a>
@@ -168,14 +128,14 @@
 			</div>
 		</div>
 
-		<div id="sex">
+		<div id="right_box">
 			<%-- 우측 상단박스 --%>
 			
 				
 			
 			<form name="form" method="post" action="reserve3.kkc?day=${day}&resdate=${resdate}&h_no=${h_no}&reserve_roomfind=${roomfind}">
 			
-			
+			<div id="sodyd">
 				<div>
 					<%-- 룸 --%>
 					<div>
@@ -343,7 +303,8 @@
 				<div class="result">
 					<input id="result" type="submit" value="결제하기" />
 				</div>
-
+				
+			 </div>
 			</form>
 			
 			

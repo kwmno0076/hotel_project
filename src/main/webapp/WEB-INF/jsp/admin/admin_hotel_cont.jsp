@@ -26,7 +26,19 @@
     <c:if test="${!empty h.h_file}">
     <tr>
      <th>첨부파일</th>
-     <td>${h.h_file}</td>
+     <td>
+     
+     <div class="bxslider" id="lightGallery">
+     <c:if test="${!empty h.h_file}">
+	  <c:forTokens var="ima" items="${h.h_file}" delims="," varStatus="sts">
+	  <c:if test="${!ima.equals('null')}">
+        ${h.h_file}
+      </c:if>
+      </c:forTokens>
+      </c:if>
+       </div>
+     
+     </td>
     </tr>
     </c:if>
    </table>

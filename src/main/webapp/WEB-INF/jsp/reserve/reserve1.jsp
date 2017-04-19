@@ -67,6 +67,11 @@ A:hover {
 	color: #5c322e;
 	text-decoration: none;
 }
+
+#wrap6{
+	width:725px;
+	margin-left:400px;
+}
 </style>
 
 

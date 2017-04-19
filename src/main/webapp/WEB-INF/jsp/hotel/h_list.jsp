@@ -136,8 +136,10 @@ window.scrollTo(0,250); // 페이지 상단 광고를 바로 볼 수 있게 스�
 
  					<c:forEach var="h" items="${hlist}">
  					
- 					<img alt="설정된 이미지가 없습니다." src="${path}${h.h_file}" class="im1"  />
  					
+ 					<c:forTokens var="ima" items="${h.h_file}" delims="," end="0">
+ 					<img alt="설정된 이미지가 없습니다." src="./upload/${ima}" class="im1"  />
+ 					</c:forTokens>
 <!-- 			<img alt="호텔사진" src="./images/hotel07.jpg" class="im1" />				 -->
 	
 						<%-- *.kkc?no=번호&page=쪽번호&state=cont 구분값까지

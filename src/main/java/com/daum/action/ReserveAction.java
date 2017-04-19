@@ -20,6 +20,9 @@ import com.daum.model.ReserveBean;
 import com.daum.service.HotelService;
 import com.daum.service.ReserveService;
 
+
+
+
 @Controller
 public class ReserveAction {
 	
@@ -30,7 +33,7 @@ public class ReserveAction {
 	
 	//예약페이지열기
 		@RequestMapping("/reserve1.kkc")
-		public ModelAndView reservation(HttpServletRequest request,
+		public ModelAndView reserve(HttpServletRequest request,
 				HttpServletResponse response,
 				HttpSession session,
 				@RequestParam("h_no") int h_no) throws Exception{
@@ -76,7 +79,7 @@ public class ReserveAction {
 		
 		//예약2번째단계
 		@RequestMapping("/reserve2.kkc")
-		public ModelAndView reservation2(HttpServletRequest request,
+		public ModelAndView reserve(HttpServletRequest request,
 				HttpServletResponse response,
 				HttpSession session,
 				@RequestParam("h_no") int h_no,
@@ -159,15 +162,13 @@ public class ReserveAction {
 		
 		
 		@RequestMapping("/reserve3.kkc")
-		public ModelAndView reservation3(HttpServletRequest request,
+		public ModelAndView reserve3(HttpServletRequest request,
 				HttpServletResponse response,HttpSession session,
 				@RequestParam("h_no") int h_no,
 				@RequestParam("resdate") int resdate,
 				@RequestParam("reserve_roomfind") int roomfind,
 				@RequestParam("day") int day,
 				@RequestParam("price_option") int price_option)
-		
-						
 						throws Exception{
 			
 			response.setContentType("text/html;charset=UTF-8");
@@ -197,8 +198,7 @@ public class ReserveAction {
 				int respwd=Integer.parseInt(request.getParameter("reserve_pwd")); // 예약 비밀번호
 								//호텔 bean에 들어있는 값입니다.			
 				
-				System.out.println("h_price_option : " + request.getParameter("h_price_option"));		
-									
+					
 				
 				String username=request.getParameter("reserve_username");//입금자명
 				
@@ -239,7 +239,7 @@ public class ReserveAction {
 		}
 		
 		@RequestMapping("/reserveOk.kkc")
-		public ModelAndView reservation4(HttpServletRequest request,
+		public ModelAndView reserve4(HttpServletRequest request,
 				HttpSession session,
 				HttpServletResponse response,
 				@RequestParam("h_no") int h_no,
@@ -250,6 +250,7 @@ public class ReserveAction {
 				@RequestParam("username") String username,
 				@RequestParam("respwd") String respwd,
 				@RequestParam("reserve_addr") String addr
+				
 				
 				) throws Exception{
 			
@@ -264,10 +265,13 @@ public class ReserveAction {
 				out.println("</script>");
 			}else{
 				int allPrice=Integer.parseInt(request.getParameter("reserve_price"));
+				
 				HotelBean hb_name=this.hotelService.getName(h_no);
+				//hotel_bean
 				
 				ReserveBean rb=new ReserveBean();
 				if(state.equals("B")){  //무통장입
+					
 					
 					rb.setReserve_name(hb_name.getH_title()); //호텔이름을 reserve에 저장
 					rb.setReserve_roomfind(roomfind);//룸 종류 정해주는 놈 구분해주는 놈임
@@ -285,6 +289,9 @@ public class ReserveAction {
 					//예약자명(입금자명),예약자연락처,예약비번,결제금액,
 					//예약자연락처, 예약비밀번호
 					//결제금액
+					
+					
+					
 					
 					int re=this.reserveService.res_in(rb);
 					

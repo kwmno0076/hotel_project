@@ -4,12 +4,16 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b4e6b786387c46c14d7605d5590f47dccbe6c684
 <jsp:include page="../include/header.jsp" />
 
 	<link rel="stylesheet" type="text/css" href="./css/community/cm_cont.css" />
 
 	<c:set var="date" value="<%=new Date() %>" />
-	<form id="resok" method="post" action="reserveOk.kkc?day=${day}&resdate=${resdate }&selday=${selday}&h_no=${h_no}&reserve_roomfind=${roomfind}&state=${payment}&username=${username}&addr=${addr}&respwd=${respwd }">
+	<form id="resok" method="post" action="reserveOk.kkc?day=${day}&resdate=${resdate }&selday=${selday}&h_no=${h_no}&reserve_roomfind=${roomfind}&state=${payment}&username=${username}&reserve_addr=${addr}&respwd=${respwd}">
 	<div class="confcon">
 			<!-- 예약확인 -->
 			
@@ -30,10 +34,7 @@
 			<c:forEach var="ho" items="${ho_info }">
 			
 			<input type="hidden" id ="price_option" name="bb" value="${price_option}" />
-			<input type="hidden" name="reserve_addr" value="${addr}"/>
-			<input type="hidden" name="reserve_payment" value="${payment }"/>
-			<input type="hidden" name="reserve_respwd" value="${respwd }"/>
-			<input type="hidden" name="reserve_night" value="${selday }"/>
+			
 			
 			
 			
@@ -184,36 +185,29 @@
 					
 						
 						</table>
-						<!-- 방 총 결제 가격 -->
+						
 						<script>
 						
 							var sumPrice=PriceSum();
 							document.write(sumPrice);
 						</script>원
-						
-						
 						</td>
 						<td>${ho.h_price_option}원</td>  <!-- 옵션 -->
 						<td>
 						
 
 
-						<td>
+						
 						<script>
 							
 							var sum=allPriceSum();
 							document.write(sum);
-
 						</script>원
 						</td>
 					</tr>
 				</c:forEach>
 				</c:if>
 			</table>
-			
-			
-			
-
 			<table class="resconfirm2">
 					<tr>
 						<th>예약일</th>
@@ -259,11 +253,15 @@
 				document.write(sum);
 
 			</script>원
-			<input type="hidden" name="r_price" id="r_price" />
+			<input type="hidden" name="reserve_price" id="reserve_price" />
 			</td>		
 			 </tr>
 			</table>		
 			
+			<input type="hidden" name="reserve_addr" value="${addr}"/>
+			<input type="hidden" name="reserve_payment" value="${payment }"/>
+			<input type="hidden" name="reserve_respwd" value="${respwd }"/>
+			<input type="hidden" name="reserve_night" value="${selday }"/>
 
 			<div class="button">
 			

@@ -119,10 +119,6 @@ public class AdminHotelAction {
 			String h_option = multi.getParameter("h_option"); // 호텔 옵션명
 
 			int h_price_option = Integer.parseInt(multi.getParameter("h_price_option")); // 호텔 옵션 금액 
-																							
-			
-			
-			
 			String h_local = multi.getParameter("h_local");
 
 			String h_cont = multi.getParameter("h_cont"); // 내용

@@ -4,10 +4,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b4e6b786387c46c14d7605d5590f47dccbe6c684
 <jsp:include page="../include/header.jsp" />
 
 	<link rel="stylesheet" type="text/css" href="./css/community/cm_cont.css" />

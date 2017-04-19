@@ -49,9 +49,7 @@ $(document).ready(function(){
  	   <div class="bxslider" id="lightGallery">
 	  <c:if test="${!empty adpb.pt_file}">
 	  <c:forTokens var="ima" items="${adpb.pt_file}" delims="," varStatus="sts">
-	  <c:if test="${!ima.equals('null')}">
         <a href="./upload/${ima}"><img src="./upload/${ima}" /></a>
-      </c:if>
       </c:forTokens>
       </c:if>
        </div>

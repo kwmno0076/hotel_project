@@ -232,6 +232,7 @@ public class CmAction {
 		return "redirect:/cm_cont.kkc?no="+cm_no+"&state="+state+"&page="+page;
 	}
 	
+
 	
 	//단일파일업로드
 	@RequestMapping("/photoUpload")

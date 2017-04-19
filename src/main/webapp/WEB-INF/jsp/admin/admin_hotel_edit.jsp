@@ -53,9 +53,17 @@
 					<th>방 이름</th>
 					<td><input name="h_room" id="h_room" size="14" value="${h.h_room}" />
 					방 수<input name="h_room_ok" id="h_room_ok" size="14" value="${h.h_room_ok}" /> <%-- type="text"가 생략되면 기본값이 text이다. --%>
-						방 가격 <input name="h_price_room" id="h_price_room" size="14" value="${h.h_price_room}" /> <%-- type="text"가 생략되면 기본값이 text이다. --%>
+					 <%-- type="text"가 생략되면 기본값이 text이다. --%>
 					</td>
 
+				</tr>
+				
+				<tr>
+					<th>방가격</th>
+					<td>
+					평일<input name="h_price_room" id="h_price_room" size="14" />
+					주말<input name="h_price_room2" id="h_price_room2" size="14" />
+					</td>
 				</tr>
 
 				<tr>

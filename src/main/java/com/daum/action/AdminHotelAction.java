@@ -2,7 +2,9 @@ package com.daum.action;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Random;
 
@@ -20,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.daum.model.HotelBean;
 import com.daum.service.HotelService;
 import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 @Controller
 public class AdminHotelAction {
@@ -82,15 +85,16 @@ public class AdminHotelAction {
 				out.println("</script>");
 			}else{
 				
-			
-			String saveFolder = request.getSession().getServletContext().getRealPath("");
+				String savePath="D:/Spring_program/STS_Project/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/project/upload";
 
 			// 이진파일 업로드 서버 경로
 			int fileSize = 5 * 1024 * 1024;// 이진파일 업로드 최대크기,
 			// 5M
-
+			
+			List<String> saveFiles=new ArrayList<String>();
+			
 			MultipartRequest multi = null;// 이진파일 업로드 참조변수
-			multi = new MultipartRequest(request, saveFolder, fileSize, "UTF-8");
+			multi = new MultipartRequest(request, savePath, fileSize, "UTF-8",new DefaultFileRenamePolicy());
 			/*
 			 * 1. 생성자의 첫번째 전달인자 request는 사용자폼에서 입 력한 정보를 서버로 가져오는 역할 2.saveFolder는
 			 * 이진파일 업로드 서버경로 3.fileSize는 이진파일 업로드 최대크기 4.UTF-8은 언어코딩 타입
@@ -108,56 +112,38 @@ public class AdminHotelAction {
 			
 			//호텔 금액
 			int h_price_room = Integer.parseInt(multi.getParameter("h_price_room"));
-																						
+			//호텔 금액
+			
+			int h_price_room2 = Integer.parseInt(multi.getParameter("h_price_room2"));
+													
 			String h_option = multi.getParameter("h_option"); // 호텔 옵션명
 
 			int h_price_option = Integer.parseInt(multi.getParameter("h_price_option")); // 호텔 옵션 금액 
-																							
-			
-			
-			
 			String h_local = multi.getParameter("h_local");
 
 			String h_cont = multi.getParameter("h_cont"); // 내용
-
-			File UpFile = multi.getFile("h_file");// 첨부한이진파일
-			// 을 가져옴.
-			if (UpFile != null) {// 첨부한 이진파일이 있다면
-				String fileName = UpFile.getName();// 첨부한 파일명
-				// 저장
-				Calendar c = Calendar.getInstance();
-				// Calendar는 추상클래스로서 년월일 시분초를 구함.
-				int year = c.get(Calendar.YEAR);// 년도값
-				int month = c.get(Calendar.MONTH) + 1;// 월값.+1을 한
-				// 이유는 1월이 0으로 반환도기 때문이다.
-				int date = c.get(Calendar.DATE);// 일값
-				String homedir = saveFolder + "upload/" + year + "-" + month + "-" + date;
-				// 새로운 이진파일 업로드 폴더 경로를 저장
-				File path1 = new File(homedir);
-				if (!(path1.exists())) {
-					path1.mkdir();// 새로운 폴더를 생성
+			
+			
+			
+			Enumeration files=multi.getFileNames();		
+			
+			while(files.hasMoreElements()){
+				String name=(String)files.nextElement();
+				//input type="file" 의 피라미터 이름을 가져옴.
+				if(files.hasMoreElements()){
+					saveFiles.add(multi.getFilesystemName(name)+",");//하나이상의 type="file"일 경우 ,로 구분해서 저장
+				}else{
+					saveFiles.add(multi.getFilesystemName(name));    
 				}
-				Random r = new Random();
-				int random = r.nextInt(100000000);// 1억사이 임의의
-				// 정수 난수를 발생
-				/* 확장자 구하기 */
-				int index = fileName.lastIndexOf(".");// 첨부한 파일
-				// 에서 마침표 위치번호를 구함
-				String fileExtension = fileName.substring(index + 1);
-				// 첨부한 파일에서 확장자만 구함
-				String refileName = "hotel" + year + month + date + random + "." + fileExtension;// 새로운
-																									// 파일명
-																									// 저장
-				String fileDBName = "/" + year + "-" + month + "-" + date + "/" + refileName;// 오라클에
-																								// 저장될
-																								// 레코드값
-				UpFile.renameTo(new File(homedir + "/" + refileName));
-				// 바뀌어진 이진파일로 폴더에 업로드
-				h.setH_file(fileDBName);
-			} else {// 파일을 첨부하지 않았을때
-				String fileDBName = "";
-				h.setH_file(fileDBName);
 			}
+			
+			StringBuffer f=new StringBuffer();
+			
+			
+			for(int i=0;i<saveFiles.size();i++){
+				f.append(saveFiles.get(i));//업로드 된 실제 파일을 버퍼에 누적해서 저장.
+			}//일반 for
+			
 
 			h.setH_name(h_name);
 			h.setH_phone(h_phone);
@@ -165,19 +151,21 @@ public class AdminHotelAction {
 			h.setH_room(h_room);
 			h.setH_room_ok(h_room_ok);
 			h.setH_price_room(h_price_room);
+			h.setH_price_room2(h_price_room2);
 			h.setH_option(h_option);
 			h.setH_price_option(h_price_option);
 			
 			h.setH_local(h_local);
 		
 			h.setH_cont(h_cont);
+			h.setH_file(f.toString());
 
 			this.hotelService.insertHotel(h);// 자료실 저장
 			
-			
+			return "redirect:/admin_hotel_list.kkc";
 			
 			}
-			return "redirect:/admin_hotel_list.kkc";
+			return null;
 		}
 		
 		// 호텔 목록 보기
@@ -262,7 +250,7 @@ public class AdminHotelAction {
 		public ModelAndView h_cont(@RequestParam("h_no") int h_no, @RequestParam("state") String state,
 				HttpServletRequest request,
 				HttpServletResponse response,
-				HttpSession session) throws Exception{
+				HttpSession session, @ModelAttribute HotelBean hb) throws Exception{
 			
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out=response.getWriter();
@@ -281,6 +269,8 @@ public class AdminHotelAction {
 			}
 			this.hotelService.updateHit(h_no);// 조회수 증가 == 나중에 즐겨찾는 목록 만들수도?
 			HotelBean h = this.hotelService.getHotelCont(h_no);
+			
+			System.out.println(h);
 
 			ModelAndView hm = new ModelAndView();
 			hm.addObject("h", h);
@@ -339,6 +329,7 @@ public class AdminHotelAction {
 			int h_room_ok = Integer.parseInt(multi.getParameter("h_room_ok")); // 방 , 룸 갯수
 			
 			int h_price_room = Integer.parseInt(multi.getParameter("h_price_room")); // 금액
+			int h_price_room2 = Integer.parseInt(multi.getParameter("h_price_room2"));
 			String h_option = multi.getParameter("h_option").trim(); // 호텔 옵션
 			int h_price_option = Integer.parseInt(multi.getParameter("h_price_option")); // 옵션 금액
 			
@@ -406,6 +397,7 @@ public class AdminHotelAction {
 				h.setH_room(h_room);
 				h.setH_room_ok(h_room_ok);
 				h.setH_price_room(h_price_room);
+				h.setH_price_room2(h_price_room2);
 				h.setH_option(h_option);
 				h.setH_price_option(h_price_option);
 			

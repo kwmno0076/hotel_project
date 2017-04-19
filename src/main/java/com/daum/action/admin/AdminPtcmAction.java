@@ -134,7 +134,7 @@ public class AdminPtcmAction {
 			out.println("location='admin_login.kkc';");
 			out.println("</script>");
 		}else{
-			String savePath="D:/Spring_program/STS_Project/project/src/main/webapp/upload";
+			String savePath="D:/Spring_program/STS_Project/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/project/upload";
 			//이진파일 업로드 서버 경로
 			
 			int fileSize=5*1024*1024;
@@ -253,7 +253,7 @@ public class AdminPtcmAction {
 		  
 		String admin_id=(String)session.getAttribute("admin_id");
 		
-		String savePath="D:/Spring_program/STS_Project/project/src/main/webapp/upload";
+		String savePath="D:/Spring_program/STS_Project/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/project/upload";
 		//이진파일 업로드 서버 경로
 		int fileSize=5*1024*1024;
 		

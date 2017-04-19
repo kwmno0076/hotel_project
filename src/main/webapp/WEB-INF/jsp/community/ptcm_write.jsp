@@ -19,13 +19,7 @@ $(document).ready(function(){
 		$("table").append(copy.clone());
 	});
 });
-function aaa(){
-	 if(window.confirm("취소하시겠습니까?")==true){
-		 location="ptcm_list.kkc?page=${page}";
-	 }else{
-		 return;
-	 }
-}
+
 </script>
 
 <div id="container_cm"><%-- 헤더아래 배경 --%>
@@ -42,9 +36,9 @@ function aaa(){
  <div class="clear"></div><%-- 빈공백 제거 --%>
  <hr/>
  
- <div id="imgs">
-  <img src="./images/tm01.jpg" width="200" height="400">
- </div>
+<!--  <div id="imgs"> -->
+<!--   <img src="./images/tm01.jpg" width="200" height="400"> -->
+<!--  </div> -->
  
  <div id="table_div">
   <table id="notice">

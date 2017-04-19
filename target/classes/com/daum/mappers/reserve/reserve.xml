@@ -8,7 +8,7 @@
 	
 	<!-- 예약정보 가져오기 -->
 	<select id="getres" parameterType="int" resultType="reserve">
-		select * from hotel_reserve where reserve_Hno=#{h_no}
+		select * from hotel_reserve where reserve_hno=#{h_no}
 	</select>
 	
 	<select id="getdate" parameterType="int" resultType="reserve">
@@ -17,7 +17,7 @@
 	
 	
 	<insert id="res_in" parameterType="reserve">
-		insert into hotel_reserve values(hr_no_seq.nextval,#{reserve_Hno},#{reserve_name},#{reserve_roomfind},
+		insert into hotel_reserve values(hr_no_seq.nextval,#{reserve_hno},#{reserve_name},#{reserve_roomfind},
 		#{reserve_userid},#{reserve_username},#{reserve_date},#{reserve_night},hr_no_seq.nextval,#{reserve_addr},#{reserve_pwd},
 		#{reserve_price},#{reserve_payment},
 		#{reserve_payname},#{reserve_paynum},'N',sysdate)
@@ -30,7 +30,7 @@
 <!-- 	 이용기간별 예약묶음처리 -->
 	<insert id="ref_in" parameterType="reserve">
 		insert into hotel_reserve values(r_no_seq.nextval,#{reserve_hno},#{reserve_name},#{reserve_roomfind},
-		#{reserve_userid},#{reserve_username},#{r_resdate},#{reserve_night},#{reserve_no},
+		#{reserve_userid},#{reserve_username},#{reserve_date},#{reserve_night},#{reserve_no},
 		#{reserve_addr},#{reserve_pwd},#{reserve_price},#{reserve_payment},
 		#{reserve_payname},#{reserve_paynum},'N',sysdate)
 	</insert>

@@ -18,7 +18,7 @@ create table zmem(
 
 select * from zmem where mem_email='12@12.12';
 
-insert into zmem(mem_id,mem_pwd,mem_name,mem_phone,mem_email,mem_date,mem_state)values('a','a','이름','010-1234-5678','mistral7@nate.com',sysdate,1);
+insert into zmem(mem_id,mem_pwd,mem_name,mem_phone,mem_email,mem_date,mem_state)values('a','1','이름','010-1234-5678','mistral1@nate.com',sysdate,1);
 
 drop table zmem;
 

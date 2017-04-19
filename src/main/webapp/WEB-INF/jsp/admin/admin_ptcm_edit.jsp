@@ -60,9 +60,11 @@ function aaa(){
   </table>
  </div><%-- table_div 끝 --%>
  <div class="clear"></div>
-     <input type="button" value="목록" class="btn1" onclick="location='admin_ptcm_list.kkc?page=${page}';" />
-     <input type="button" value="수정" class="btn1" id="save" />
-     <input type="button" value="취소" class="btn1" onclick="aaa();"/>
+  <div id="bt_div">
+     <input type="button" value="목록" class="btn2" onclick="location='admin_ptcm_list.kkc?page=${page}';" />
+     <input type="button" value="수정" class="btn2" id="save" />
+     <input type="button" value="취소" class="btn2" onclick="aaa();"/>
+  </div>
  
  </form><%-- form 태그 끝 --%>
   

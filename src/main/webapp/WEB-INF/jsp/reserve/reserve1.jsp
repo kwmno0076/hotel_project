@@ -41,31 +41,36 @@
 
 <style>
 A:link {
-	font-size: 9pt;
+	font-size: 15pt;
 	font-family: "돋움";
 	color: #556815;
 	text-decoration: none;
 }
 
 A:visited {
-	font-size: 9pt;
+	font-size: 20pt;
 	font-family: "돋움";
 	color: #000000;
 	text-decoration: none;
 }
 
 A:active {
-	font-size: 9pt;
+	font-size: 20pt;
 	font-family: "돋움";
 	color: #5c322e;
 	text-decoration: none;
 }
 
 A:hover {
-	font-size: 9pt;
+	font-size: 20pt;
 	font-family: "돋움";
 	color: #5c322e;
 	text-decoration: none;
+}
+
+#wrap6{
+	width:725px;
+	margin-left:400px;
 }
 </style>
 
@@ -243,7 +248,7 @@ A:hover {
 							%>
 							<span id="able"><%=sNum%></span> /<span id="all">${ok_num.h_room_ok}</span>
 							&nbsp;&nbsp;<a
-								href="reserve2.kkc?day=<%=newLine %>&date=<%=iUseDate2 %>&h_no=${h_no}&reserve_roomfind=1"
+								href="reserve2.kkc?day=<%=newLine %>&resdate=<%=iUseDate2 %>&h_no=${h_no}&reserve_roomfind=1"
 								id="res_go">예약하기</a><br />
 
 							<%

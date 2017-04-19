@@ -20,6 +20,9 @@ import com.daum.model.ReserveBean;
 import com.daum.service.HotelService;
 import com.daum.service.ReserveService;
 
+
+
+
 @Controller
 public class ReserveAction {
 	
@@ -30,7 +33,7 @@ public class ReserveAction {
 	
 	//예약페이지열기
 		@RequestMapping("/reserve1.kkc")
-		public ModelAndView reservation(HttpServletRequest request,
+		public ModelAndView reserve(HttpServletRequest request,
 				HttpServletResponse response,
 				HttpSession session,
 				@RequestParam("h_no") int h_no) throws Exception{
@@ -76,13 +79,13 @@ public class ReserveAction {
 		
 		//예약2번째단계
 		@RequestMapping("/reserve2.kkc")
-		public ModelAndView reservation2(HttpServletRequest request,
+		public ModelAndView reserve(HttpServletRequest request,
 				HttpServletResponse response,
 				HttpSession session,
 				@RequestParam("h_no") int h_no,
-				@RequestParam("date") int date, //숙박 머무는날짜?
+				@RequestParam("resdate") int resdate, //숙박 머무는날짜?
 				@RequestParam("reserve_roomfind") int roomfind, // 호텔 추가 구분값 미리 만들어둿음
-				@RequestParam("day") int day) throws Exception{
+				@RequestParam("day") int day)throws Exception{
 			
 			
 			response.setContentType("text/html;charset=UTF-8");
@@ -98,7 +101,7 @@ public class ReserveAction {
 			}else{			
 				if(roomfind==1){
 					for(int k=0;k<5;k++){
-						List<ReserveBean> resdatelist=this.reserveService.getresdatelist(date+k); //최대5일
+						List<ReserveBean> resdatelist=this.reserveService.getresdatelist(resdate+k); //최대5일
 						
 						List<HotelBean> hb2=this.hotelService.getDetail(h_no);
 						
@@ -112,7 +115,7 @@ public class ReserveAction {
 									if(room==0){
 										int cantresdate=resdatelist.get(j).getReserve_date();
 										
-										int seloption=cantresdate-date;
+										int seloption=cantresdate-resdate;
 										
 										List<HotelBean> ho_info=this.hotelService.getDetail(h_no);
 										
@@ -120,8 +123,9 @@ public class ReserveAction {
 										res2.addObject("ho_info",ho_info);//호텔정보
 										
 										res2.addObject("h_no",h_no);
-										res2.addObject("date",date);
+										res2.addObject("resdate",resdate);
 										res2.addObject("roomfind",roomfind); //호텔 방구분값
+										
 										res2.addObject("day",day);
 										res2.addObject("seloption",seloption);
 										res2.setViewName("reserve/reserve2");
@@ -140,10 +144,11 @@ public class ReserveAction {
 					
 					ModelAndView res2=new ModelAndView();					
 					
-					res2.addObject("ho_info",ho_info);//캠핑장정보
+					res2.addObject("ho_info",ho_info);//호텔정보
 					res2.addObject("h_no",h_no);
-					res2.addObject("date",date);
+					res2.addObject("resdate",resdate);
 					res2.addObject("roomfind",roomfind);
+					
 					res2.addObject("day",day);
 					res2.addObject("seloption",seloption);
 					
@@ -157,18 +162,20 @@ public class ReserveAction {
 		
 		
 		@RequestMapping("/reserve3.kkc")
-		public ModelAndView reservation3(HttpServletRequest request,
+		public ModelAndView reserve3(HttpServletRequest request,
 				HttpServletResponse response,HttpSession session,
 				@RequestParam("h_no") int h_no,
-				@RequestParam("date") int date,
+				@RequestParam("resdate") int resdate,
 				@RequestParam("reserve_roomfind") int roomfind,
-				@RequestParam("day") int day) throws Exception{
+				@RequestParam("day") int day,
+				@RequestParam("price_option") int price_option)
+						throws Exception{
 			
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out=response.getWriter();
 			
 			String logid ="";
-			
+			System.out.println("실험*------>"+price_option);
 			System.out.println(session.getAttribute("id")); 
 			
 			if( session.getAttribute("id") == null )
@@ -186,19 +193,24 @@ public class ReserveAction {
 				int selday=Integer.parseInt(request.getParameter("selday"));//이용기간 이게 널이다보니까 형변환 실패
 				
 				
-				
-				
-				System.out.println(request.getParameter("reserve_pwd"));
-				
+				System.out.println(request.getParameter("reserve_pwd"));				
 				
 				int respwd=Integer.parseInt(request.getParameter("reserve_pwd")); // 예약 비밀번호
-			
+								//호텔 bean에 들어있는 값입니다.			
+				
+					
 				
 				String username=request.getParameter("reserve_username");//입금자명
+				
+				System.out.println("reserve_username : " + request.getParameter("reserve_username"));
+				
 				String addr=request.getParameter("reserve_addr");//연락처
+				
 				String resid=(String)session.getAttribute("id");//세션아이디
 				String payment=request.getParameter("reserve_payment");//결제방법
+				
 				//B-계좌,C-카드
+				
 				List<HotelBean> ho_info=this.hotelService.getDetail(h_no);
 				
 				/*PublicCoCBean pcb=new PublicCoCBean();
@@ -208,11 +220,11 @@ public class ReserveAction {
 				
 				res3.addObject("ho_info",ho_info);
 				res3.addObject("h_no",h_no);
-				res3.addObject("date",date);
+				res3.addObject("resdate",resdate);
 				res3.addObject("roomfind",roomfind);
 				res3.addObject("day",day);
 				res3.addObject("selday",selday);
-				
+				res3.addObject("price_option",price_option);
 				res3.addObject("username",username);
 				res3.addObject("addr",addr);
 				res3.addObject("resid",resid);
@@ -227,17 +239,19 @@ public class ReserveAction {
 		}
 		
 		@RequestMapping("/reserveOk.kkc")
-		public ModelAndView reservation4(HttpServletRequest request,
+		public ModelAndView reserve4(HttpServletRequest request,
 				HttpSession session,
 				HttpServletResponse response,
 				@RequestParam("h_no") int h_no,
-				@RequestParam("date") int date,
+				@RequestParam("resdate") int resdate,
 				@RequestParam("reserve_roomfind") int roomfind,
 				@RequestParam("selday") int selday,
 				@RequestParam("state") String state,
 				@RequestParam("username") String username,
 				@RequestParam("respwd") String respwd,
 				@RequestParam("reserve_addr") String addr
+				
+				
 				) throws Exception{
 			
 			String resid=(String)session.getAttribute("id");
@@ -251,16 +265,19 @@ public class ReserveAction {
 				out.println("</script>");
 			}else{
 				int allPrice=Integer.parseInt(request.getParameter("reserve_price"));
+				
 				HotelBean hb_name=this.hotelService.getName(h_no);
+				//hotel_bean
 				
 				ReserveBean rb=new ReserveBean();
 				if(state.equals("B")){  //무통장입
+					
 					
 					rb.setReserve_name(hb_name.getH_title()); //호텔이름을 reserve에 저장
 					rb.setReserve_roomfind(roomfind);//룸 종류 정해주는 놈 구분해주는 놈임
 					rb.setReserve_hno(h_no);
 					rb.setReserve_userid(resid);//예약자ID
-					rb.setReserve_date(date);//이용날짜
+					rb.setReserve_date(resdate);//이용날짜
 					rb.setReserve_username(username);//입금자명
 					rb.setReserve_pwd(respwd);//예약비번
 					rb.setReserve_addr(addr);
@@ -273,10 +290,13 @@ public class ReserveAction {
 					//예약자연락처, 예약비밀번호
 					//결제금액
 					
+					
+					
+					
 					int re=this.reserveService.res_in(rb);
 					
-					String date2=Integer.toString(date);
-					String finalday=date2.substring(4,8);
+					String resdate2=Integer.toString(resdate);
+					String finalday=resdate2.substring(4,8);
 					 //ㅅㅂ 빈 클라스랑 테이블 이름 줜나 잘 적어놔서 너무 길어서 미치겠네 
 					if(re>0){ //re는 음 ... 호텔 예약번호 넣겠음
 						if(selday>1){ //이용기간이 1이상 일때
@@ -284,9 +304,9 @@ public class ReserveAction {
 							int seq=rb2.getReserve_no(); //예약번호^^ 현우보다 좋은 한우^^
 							for(int i=1;i<selday;i++){
 								rb.setReserve_ref(seq); // 예약번호묶음^^
-								rb.setReserve_date(date+i); // 예약 날짜
+								rb.setReserve_date(resdate+i); // 예약 날짜
 								
-								String resdate3=Integer.toString(date+i);
+								String resdate3=Integer.toString(resdate+i);
 								
 								String finalday2=resdate3.substring(5,8);
 								
@@ -298,25 +318,25 @@ public class ReserveAction {
 								
 								if(finalday.equals("0430")||finalday.equals("0630")||finalday.equals("0930")||
 										finalday.equals("1130")){
-										rb.setReserve_date(date+70+i);
+										rb.setReserve_date(resdate+70+i);
 										
 								}else if(finalday.equals("0131")||finalday.equals("0331")||finalday.equals("0531")||
 											finalday.equals("0731")||finalday.equals("0831")||finalday.equals("1031")){
-										rb.setReserve_date(date+69+i);
+										rb.setReserve_date(resdate+69+i);
 								}else if(finalday.equals("1231")){
-										rb.setReserve_date(date-8869+i);
+										rb.setReserve_date(resdate-8869+i);
 								}else if(finalday.equals("0228")){
-										rb.setReserve_date(date+72+i);
+										rb.setReserve_date(resdate+72+i);
 								}else if((finalday3>430&&finalday3<437)||(finalday3>630&&finalday3<637)||(finalday3>930&&finalday3<937)||
 										(finalday5>1130&&finalday5<1137)){
-										rb.setReserve_date(date+70+i);
+										rb.setReserve_date(resdate+70+i);
 								}else if((finalday3>131&&finalday3<138)||(finalday3>331&&finalday3<338)||(finalday3>531&&finalday3<538)||
 										(finalday3>731&&finalday3<738)||(finalday3>831&&finalday3<838)||(finalday5>1031&&finalday5<1038)){
-									rb.setReserve_date(date+69+i);
+									rb.setReserve_date(resdate+69+i);
 								}else if(finalday5>1231&&finalday5<1238){
-									rb.setReserve_date(date-8869+i);
+									rb.setReserve_date(resdate-8869+i);
 								}else if(finalday3>228&&finalday3<237){
-									rb.setReserve_date(date+72+i);
+									rb.setReserve_date(resdate+72+i);
 								}
 		
 								this.reserveService.res_in2(rb);
@@ -352,7 +372,7 @@ public class ReserveAction {
 					rb.setReserve_roomfind(roomfind);//룸 종류 정해주는 놈 구분해주는 놈임
 					rb.setReserve_hno(h_no);
 					rb.setReserve_userid(resid);//예약자ID
-					rb.setReserve_date(date);//이용날짜
+					rb.setReserve_date(resdate);//이용날짜
 					rb.setReserve_username(username);//입금자명
 					rb.setReserve_pwd(respwd);//예약비번
 					rb.setReserve_addr(addr);
@@ -364,8 +384,8 @@ public class ReserveAction {
 					
 					int re=this.reserveService.res_in(rb);
 					
-					String date2=Integer.toString(date);
-					String finalday=date2.substring(4,8);
+					String resdate2=Integer.toString(resdate);
+					String finalday=resdate2.substring(4,8);
 
 					if(re>0){
 						if(selday>1){
@@ -373,34 +393,35 @@ public class ReserveAction {
 							int seq=rb2.getReserve_no();
 							for(int i=1;i<selday;i++){
 								rb.setReserve_ref(seq);
-								rb.setReserve_date(date+i);
+								rb.setReserve_date(resdate+i);
 								
-								String date3=Integer.toString(date+i);
-								String finalday2=date3.substring(5,8);
+								String resdate3=Integer.toString(resdate+i);
+								
+								String finalday2=resdate3.substring(5,8);
 								int finalday3=Integer.parseInt(finalday2);
-								String finalday4=date3.substring(4,8);
+								String finalday4=resdate3.substring(4,8);
 								int finalday5=Integer.parseInt(finalday4);
 								
 								if(finalday.equals("0430")||finalday.equals("0630")||finalday.equals("0930")||
 										finalday.equals("1130")){
-										rb.setReserve_date(date+70+i);
+										rb.setReserve_date(resdate+70+i);
 								}else if(finalday.equals("0131")||finalday.equals("0331")||finalday.equals("0531")||
 											finalday.equals("0731")||finalday.equals("0831")||finalday.equals("1031")){
-										rb.setReserve_date(date+69+i);
+										rb.setReserve_date(resdate+69+i);
 								}else if(finalday.equals("1231")){
-										rb.setReserve_date(date-8869+i);
+										rb.setReserve_date(resdate-8869+i);
 								}else if(finalday.equals("0228")){
-										rb.setReserve_date(date+72+i);
+										rb.setReserve_date(resdate+72+i);
 								}else if((finalday3>430&&finalday3<437)||(finalday3>630&&finalday3<637)||(finalday3>930&&finalday3<937)||
 										(finalday5>1130&&finalday5<1137)){
-										rb.setReserve_date(date+70+i);
+										rb.setReserve_date(resdate+70+i);
 								}else if((finalday3>131&&finalday3<138)||(finalday3>331&&finalday3<338)||(finalday3>531&&finalday3<538)||
 										(finalday3>731&&finalday3<738)||(finalday3>831&&finalday3<838)||(finalday5>1031&&finalday5<1038)){
-									rb.setReserve_date(date+69+i);
+									rb.setReserve_date(resdate+69+i);
 								}else if(finalday5>1231&&finalday5<1238){
-									rb.setReserve_date(date-8869+i);
+									rb.setReserve_date(resdate-8869+i);
 								}else if(finalday3>228&&finalday3<237){
-									rb.setReserve_date(date+72+i);
+									rb.setReserve_date(resdate+72+i);
 								}
 								
 								this.reserveService.res_in2(rb);
@@ -408,7 +429,7 @@ public class ReserveAction {
 							
 							rb.setReserve_username(username);
 							rb.setReserve_pwd(respwd);
-							rb.setReserve_date(date);
+							rb.setReserve_date(resdate);
 							int r_resref=this.reserveService.getNopayinfo(rb);
 							
 							ModelAndView card=new ModelAndView();
@@ -420,7 +441,7 @@ public class ReserveAction {
 						}else{
 							rb.setReserve_username(username);
 							rb.setReserve_pwd(respwd);
-							rb.setReserve_date(date);
+							rb.setReserve_date(resdate);
 							int r_resref=this.reserveService.getNopayinfo(rb);
 							ModelAndView card=new ModelAndView();
 							card.addObject("r_resref",r_resref);

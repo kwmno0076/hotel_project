@@ -44,7 +44,6 @@
       <div class="topnav"><a href="admin_cm_list.kkc">자유게시판</a></div>
        <ul class="subnav">
         <li><a href="admin_ptcm_list.kkc">포토게시판</a></li>
-        <li>asdfasdf</li>
        </ul>
      </li>
      <li><a href="admin_gongji_list.kkc">고객센터</a></li>

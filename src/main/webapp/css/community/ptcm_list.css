@@ -32,11 +32,12 @@
 	width:20%;
 	font-size:30px;
 	font-style:italic;
+	background-color:white;
 	border-radius:13px;
 }
 
 #line{/* 4칸짜리 한줄  */
-	margin:25px auto;
+	margin:10px auto;
 	height:310px;
 /* 	border:1px solid red; */
 }
@@ -45,7 +46,7 @@
 	width:250px;
 	height:300px;
 	float: left;
-	margin:0px 26px;
+	margin:10px 20px;
 	background-color:white;
 	border-radius:13px;
 	box-shadow:13px 13px 15px #939393;
@@ -64,11 +65,13 @@
 .line_1 ul li{/* 4칸짜리안에 작은틀 ul li */
 	margin:0 auto;
 	padding:0px;
+	font-size:15px;
 /* 	border:1px solid red; */
 }
 
 .line_1 a{/* 4칸짜리안에 작은틀 글씨*/
 	font-size:15px;
+	font-weight:bold;
 	text-decoration:none;/*하이퍼링크 된곳 밑줄선 사라지게함*/
 }
 

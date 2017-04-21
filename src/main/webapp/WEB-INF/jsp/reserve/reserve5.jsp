@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<jsp:include page="../include/header.jsp" />
+<jsp:include page="../include/res_header.jsp" />
 
 <div class="confcon">
 	<div id="resrfinsh">

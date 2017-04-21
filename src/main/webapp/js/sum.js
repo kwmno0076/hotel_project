@@ -1,4 +1,11 @@
 
+
+
+
+
+
+
+
 //예약날짜별 금액합
 function PriceSum(){
 	
@@ -68,3 +75,33 @@ $(document).ready(function(){
 		$("#resok").submit();
 	});
 });
+
+
+
+
+function cancelgo(resref){
+	
+	if(confirm("예약취소를 신청하시겠습니까?") == true){
+		rescancel('cancelgo',resref);
+	}
+}
+function rescancel(a,b){
+	if(a=='cancelgo'){
+		location.href="res_cancel.coc?r_resref="+b;
+	}
+}
+
+function paygo(resref,rPrice){
+	location.href="cardPay.kkc?r_resref="+resref+"&r_price="+rPrice;
+}
+
+
+
+
+
+
+
+
+
+
+

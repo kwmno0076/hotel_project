@@ -30,9 +30,9 @@
 			<p class="top">로그인</p>
 			<form class="login-form" method="post" action="member_login_ok.kkc"
 				onsubmit="return login_check();">
-				<input type="text" name="login_id" id="login_id" placeholder="아이디" />
+				<input type="text" name="login_id" id="login_id" placeholder="아이디" tabindex="1" />
 				<input type="password" name="login_pwd" id="login_pwd"
-					placeholder="비밀번호" /> 
+					placeholder="비밀번호"  tabindex="2"/> 
 					<input type="submit" id="button" value="로그인" />
 				<p class="message3">
 					아직 회원이 아니신가요? <a href="join.kkc">회원가입</a>

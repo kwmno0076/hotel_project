@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<jsp:include page="../include/header.jsp" />
+<jsp:include page="../include/res_header.jsp" />
 
 
 <%
@@ -67,11 +67,13 @@ A:hover {
 	color: #5c322e;
 	text-decoration: none;
 }
-
 #wrap6{
 	width:725px;
-	margin-left:400px;
+	margin-left:350px;
 }
+
+
+
 </style>
 
 

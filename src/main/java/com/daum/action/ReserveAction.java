@@ -213,8 +213,6 @@ public class ReserveAction {
 				
 				List<HotelBean> ho_info=this.hotelService.getDetail(h_no);
 				
-				/*PublicCoCBean pcb=new PublicCoCBean();
-				PublicCoCBean pcb2=this.reservationService.getInfo(pcb);*/
 				
 				ModelAndView res3=new ModelAndView();
 				
@@ -261,7 +259,7 @@ public class ReserveAction {
 			if(resid==null){
 				out.println("<script>");
 				out.println("alert('세션만료, 다시로그인해주세요.');");
-				out.println("location='index.coc';");
+				out.println("location='index.kkc';");
 				out.println("</script>");
 			}else{
 				int allPrice=Integer.parseInt(request.getParameter("reserve_price"));
@@ -299,7 +297,7 @@ public class ReserveAction {
 					String finalday=resdate2.substring(4,8);
 					 //ㅅㅂ 빈 클라스랑 테이블 이름 줜나 잘 적어놔서 너무 길어서 미치겠네 
 					if(re>0){ //re는 음 ... 호텔 예약번호 넣겠음
-						if(selday>1){ //이용기간이 1이상 일때
+						if(selday>1){ //이용기간이 1보다 클때 일때
 							ReserveBean rb2=new ReserveBean();
 							int seq=rb2.getReserve_no(); //예약번호^^ 현우보다 좋은 한우^^
 							for(int i=1;i<selday;i++){
@@ -463,8 +461,8 @@ public class ReserveAction {
 		}
 		
 		
-		//마이페이지->카드결제 진행매핑
-		/*@RequestMapping("/cardPay.kkc")
+		//my page -> card on
+		@RequestMapping("/cardPay.kkc")
 		public ModelAndView cardpay(HttpServletRequest request,
 				HttpServletResponse response,
 				HttpSession session,
@@ -479,26 +477,26 @@ public class ReserveAction {
 			if(logid==null){
 				out.println("<script>");
 				out.println("alert('세션만료, 다시로그인해주세요.');");
-				out.println("location='index.coc';");
+				out.println("location='index.kkc';");
 				out.println("</script>");
 			}else{
-				ReservationBean rb=new ReservationBean();
+				ReserveBean rb=new ReserveBean();
 				
-				rb.setR_price(allPrice);
-				rb.setR_resref(r_resref);
+				rb.setReserve_price(allPrice);
+				rb.setReserve_ref(r_resref);
 				
 				ModelAndView cardpay=new ModelAndView();
 				
-				cardpay.addObject("allPrice",rb.getR_price());
-				cardpay.addObject("r_resref",rb.getR_resref());
-				cardpay.setViewName("reservation/reservation4");
+				cardpay.addObject("allPrice",rb.getReserve_price());
+				cardpay.addObject("r_resref",rb.getReserve_ref());
+				cardpay.setViewName("reserve/reserve4");
 				
 				return cardpay;
 			}
 			return null;
-		}*/
+		}
 		//카드결제 ok매핑
-		/*@RequestMapping("/cardPayok.kkc")
+		@RequestMapping("/cardPayok.kkc")
 		public ModelAndView Payok(HttpServletRequest request,
 				HttpServletResponse response,
 				HttpSession session) throws Exception{
@@ -510,35 +508,35 @@ public class ReserveAction {
 			if(resid==null){
 				out.println("<script>");
 				out.println("alert('세션만료, 다시로그인해주세요.');");
-				out.println("location='index.coc';");
+				out.println("location='index.kkc';");
 				out.println("</script>");
 			}else{
 				String payname=request.getParameter("r_payname");
 				int r_resref=Integer.parseInt(request.getParameter("r_resref"));
 				
-				ReservationBean rb=new ReservationBean();
-				rb.setR_payok("Y");
-				rb.setR_resref(r_resref);
-				rb.setR_memid(resid);
-				rb.setR_payname(payname);
+				ReserveBean rb=new ReserveBean();
+				rb.setReserve_payok("Y");
+				rb.setReserve_ref(r_resref);
+				rb.setReserve_userid(resid);
+				/*rb.setReserve_payname(payname); 입금 은행*/
 				
-				int re=this.reservationService.payok(rb);
+				int re=this.reserveService.payok(rb);
 				
 				if(re>0){
 					ModelAndView resok=new ModelAndView();
 					
-					resok.setViewName("reservation/reservation5");
+					resok.setViewName("reserve/reserve5");
 					
 					return resok;
 				}else{
 					out.println("<script>");
 					out.println("alert('ERROR!');");
-					out.println("location='index.coc'");
+					out.println("location='index.kkc'");
 					out.println("</script>");
 				}
 			}		
 			return null;
 		}
-	*/
+	
 
 }

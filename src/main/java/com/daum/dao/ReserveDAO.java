@@ -16,6 +16,8 @@ public interface ReserveDAO {
 	void res_in2(ReserveBean rb);
 
 	int getNopayInfo(ReserveBean rb);
+
+	int payok(ReserveBean rb);
 	
 	
 }

@@ -30,7 +30,7 @@ function gongji_check(){
  $(function(){
 	    nhn.husky.EZCreator.createInIFrame({
 	        oAppRef: oEditors,
-	        elPlaceHolder : "cm_cont",
+	        elPlaceHolder : "gongji_cont",
 	        //SmartEditor2Skin.html 파일이 존재하는 경로
 	        sSkinURI : "./SE2/SmartEditor2Skin.html",
 	        htParams : {
@@ -47,14 +47,14 @@ function gongji_check(){
 	        }, 
 	        fOnAppLoad : function(){
 	            //기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-	            oEditors.getById["cm_cont"]//.exec("PASTE_HTML", ["첨부할 사진을 포함한 기사를 작성해 주세요!"]);
+	            oEditors.getById["gongji_cont"]//.exec("PASTE_HTML", ["첨부할 사진을 포함한 기사를 작성해 주세요!"]);
 	        },
 	        fCreator: "createSEditor2"
 	    });
 	    
 	    //저장버튼 클릭시 form 전송
 	    $("#save").click(function(){
-	        oEditors.getById["cm_cont"].exec("UPDATE_CONTENTS_FIELD", []);
+	        oEditors.getById["gongji_cont"].exec("UPDATE_CONTENTS_FIELD", []);
 	        $("#asdf").submit();
 	    });
 	});

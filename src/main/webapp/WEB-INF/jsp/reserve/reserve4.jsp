@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<jsp:include page="../include/header.jsp" />
+<jsp:include page="../include/res_header.jsp" />
 <script>
 	$(document).ready(function() {
 		$(".gostep2").click(function() {
@@ -20,7 +20,7 @@
 		<p>- 결제가 완료되지 않은경우 '마이페이지-예약확인'메뉴에서 결제진행 가능합니다.</p>
 	</div>
 	<div id="clear"></div>
-	<form method="post" action="cardPayok.coc">
+	<form method="post" action="cardPayok.kkc">
 	<div id="step_cont">
 		<div id="step1">
 			<div class="step">

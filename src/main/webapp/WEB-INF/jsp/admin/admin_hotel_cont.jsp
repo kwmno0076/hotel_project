@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c"
            uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="../include/header.jsp"%>
+<%@ include file="../include/admin_header.jsp"%>
 <%-- 상단 공통부분을 외부 포함파일 불러오기 --%>
 <script src="./js/jquery.js"></script>
 

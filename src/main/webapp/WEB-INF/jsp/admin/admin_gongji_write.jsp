@@ -13,9 +13,7 @@
 </head>
 <body>
 
-	<div id="aMain_cont">
 		<div id="abbsEdit_wrap">
-			<h2 class="abbsEdit_title">공지작성</h2>
 			<form method="post" id="asdf" action="admin_gongji_write_ok.kkc"
 				onsubmit="return gongji_check();">
 				<div id="table_div">
@@ -39,10 +37,9 @@
 							<td><textarea name="gongji_cont" id="gongji_cont" class="td2"></textarea></td>
 						</tr>
 						<tr>
-							<th colspan="2"><input type="button" value="목록" class="btn1"
-								onclick="location='admin_gongji_list.kkc?page=${page}';" /> 
-								<input type="submit" value="작성" />
-								<input type="button" value="취소" class="btn1" onclick="aaa();" /></th>
+							<th colspan="2">
+								<input type="button" value="등록" class="btn1" id="save" />
+							<input type="button" value="목록" class="btn1" onclick="location='admin_gongji_list.kkc?page=${page}';" /> 
 						</tr>
 					</table>
 				</div>
@@ -51,7 +48,6 @@
 			</form>
 			<%-- form 태그 끝 --%>
 		</div>
-	</div>
 </body>
 </html>
 <%@ include file="../include/footer.jsp"%>

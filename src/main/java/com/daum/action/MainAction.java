@@ -141,11 +141,11 @@ public class MainAction {
 	
 	
 	
-	//고객센터
-	@RequestMapping("/customcenter")
-	public String customcenter(){
-		return "customcenter/customcenter";
-	}
+//	//고객센터
+//	@RequestMapping("/customcenter")
+//	public String customcenter(){
+//		return "customcenter/customcenter";
+//	}
 	
 	//포토텔
 	@RequestMapping("/h_photo")

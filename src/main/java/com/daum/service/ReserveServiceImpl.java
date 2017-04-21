@@ -44,6 +44,12 @@ public class ReserveServiceImpl implements ReserveService {
 		
 		return this.dao.getNopayInfo(rb);
 	}
+
+	@Override
+	public int payok(ReserveBean rb) {
+		
+		return this.dao.payok(rb);
+	}
 	
 
 	

@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 자유게시판 관리</title>
+<title>관리자 공지사항 관리</title>
 <script src="./js/jquery.js"></script>
+<script src="./js/gongji.js"></script>
 <link rel="stylesheet" type="text/css" href="./admin_css/admin_gong/admin_gong.css" />
 </head>
 <body>
@@ -29,15 +30,13 @@
 					<c:forEach var="g" items="${blist}">
 						<tr>
 							<td align="center">${g.gongji_no}</td>
-							<td><a
-								href="admin_gongji_cont.kkc?no=${g.gongji_no}&page=${page}&state=cont">
-									<c:if test="${fn:length(g.gongji_title)>16}">
-										<%-- 자료실 제목이 16자를 넘어서는 경우 실행 --%>
-   ${fn:substring(g.gongji_title,0,16)}...
-   <%--제목을 16자까지만 출력하고 나머지는 ... 표시 --%>
+							<td><a href="admin_gongji_cont.kkc?no=${g.gongji_no}&page=${page}&state=cont">
+									<c:if test="${fn:length(g.gongji_title)>16}"> <%-- 제목이 16자를 넘어서는 경우 실행 --%> 
+									${fn:substring(g.gongji_title,0,16)}...
+   							<%--제목을 16자까지만 출력하고 나머지는 ... 표시 --%>
 									</c:if> <c:if test="${fn:length(g.gongji_title) <16}">
-   ${g.gongji_title}
-  </c:if>
+									 ${g.gongji_title}
+  									</c:if>
 							</a></td>
 							<td align="center">${g.gongji_name}</td>
 							<td align="center">${g.gongji_date}</td>

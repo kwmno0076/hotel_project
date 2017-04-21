@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="gongji">
+
+	<!-- 검색전후 레코드 개수 -->
+	<select id="ggcount" resultType="int" parameterType="gongji">
+		select count(gongji_no) from gongji
+		<where>
+			<if test="find_field==''">
+				<!-- 검색조건이 없는 경우는 총 레코드 개수 -->
+			</if>
+			<if test="find_field=='gongji_title'">
+				<!-- 검색조건이 제목인 경우 -->
+				gongji_title like #{find_name}
+			</if>
+			<if test="find_field=='gongji_cont'">
+				<!-- 검색조건이 내용인경우 -->
+				gongji_cont like #{find_name}
+			</if>
+		</where>
+	</select>
+	<!-- 검색전후 목록 -->
+	<select id="gglist" resultType="gongji" parameterType="gongji">
+		select * from
+		(select rowNum rNum,gongji_no,gongji_name,
+		gongji_title,gongji_hit,
+		gongji_date from
+		(select * from gongji
+		<where>
+			<if test="find_field==''">
+				<!-- 검색조건이 없는 경우는 총 레코드 개수 -->
+			</if>
+			<if test="find_field=='gongji_title'">
+				<!-- 검색조건이 제목인 경우 -->
+				gongji_title like #{find_name}
+			</if>
+			<if test="find_field=='gongji_cont'">
+				<!-- 검색조건이 내용인경우 -->
+				gongji_cont like #{find_name}
+			</if>
+		</where>
+		order by gongji_no desc))
+		where rNum&gt;=#{startrow} and
+		rNum&lt;=#{endrow}
+		<!-- &gt;은 ~보다 크다(>), &lt;은 ~보다 작다(<) -->
+	</select>
+	
+		<!-- 공지 상세정보 -->
+	<select id="ggcont" parameterType="gongji" resultType="gongji">
+		select * from gongji where gongji_no=#{gongji_no}
+	</select>
+	
+	 <update id="gghit" parameterType="int">
+ 		update gongji set gongji_hit=gongji_hit+1 where gongji_no=#{gongji_no}
+		 </update>
+
+</mapper>

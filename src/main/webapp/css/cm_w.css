@@ -1,0 +1,127 @@
+@CHARSET "UTF-8";
+
+#container_cm{/* 전체배경색 */
+	background-color:#ebeceb;
+}
+
+#container_cm1{/* 게시판 큰틀 */
+	width:80%;
+	height:1300px;
+	margin:auto;
+/* 	border:1px solid red; */
+}
+
+.h{
+	float:right;
+	font-style:italic;
+	font-size:50px;
+}
+
+
+.btn{
+	outline:0;
+	width:7%;
+	margin:25px 0px 0px 0px;
+	float:right;
+	border-radius:13px;
+	background-color:white;
+}
+
+.bt1{
+	outline:0;
+	width:20%;
+	font-size:30px;
+	font-style:italic;
+	border-radius:13px;
+}
+
+#imgs{
+/* 	border:1px solid red; */
+	width:200px;
+	float:left;
+}
+
+#container_cm2{
+	width:80%;
+	margin:0 auto;
+	float:right;
+/* 	border:1px solid black; */
+}
+
+#table{
+	width:100%;
+	border:1px solid black;
+}
+
+#table th{
+	background-color:#b7dee1;
+}
+
+#table .th1{
+	width:10%;
+}
+
+#table .th2{
+	width:90%;
+}
+
+#table .td1{
+	text-align:center;
+	background-color:white;
+}
+
+#table .td2{
+	width:100%;
+/* 	height:500px; */
+	background-color:white;
+}
+
+#table textarea{
+	width:99%;
+}
+
+.table-condensed th,
+.table-condensed td {
+	border: 1px solid black;
+}  
+ 
+.table-condensed{
+	height:150px;
+	width:100%;
+}
+
+#commentParentName{
+	width:250px;
+	height:30px;
+   
+}
+   
+#commentParentPassword   {
+	width:250px;
+	height:30px;
+	margin:10px 0px 10px 10px;
+
+}
+.form-group{
+	width:300px;
+	height:50px;
+	margin:0;
+	display: inline;
+} 
+     
+.table_bo{
+	float:right;
+}   
+   
+.btn-default{
+	width:50px;
+	height:30px;
+    border: 2px solid #c0c0c0!important;
+}   
+      
+#form-control{
+	width:100%; 
+	height:80px;
+	resize:none;
+}   
+

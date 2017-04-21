@@ -17,17 +17,19 @@ public interface ReserveService {
 
 	int getNopayinfo(ReserveBean rb);
 
+	int payok(ReserveBean rb);
+
 	
 	
 	
 	
-	/*PublicCoCBean getInfo(PublicCoCBean pcb);
+	/*
 
 	int res_in(ReservationBean rb);
 
 	void res_in2(ReservationBean rb);
 
-	int payok(ReservationBean rb);
+	
 	
 	List<ReservationBean> getResinfo(ReservationBean rb);
 

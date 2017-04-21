@@ -40,16 +40,13 @@ create table adminT(
  
  
  
- delete from tbl_Hotel;
- 
  
  
  drop table tbl_Hotel;
  
  select * from tbl_hotel order by h_no desc;
  
- select * from tbl_hotel
- 
+
  create sequence h_no_seq
  start with 1 --1부터 시작
  increment by 1 --1씩증가 옵션
@@ -77,8 +74,7 @@ create table adminT(
   ,reserve_UserId varchar2(20) --예약자ID
   ,reserve_UserName varchar2(40) --예약자이름(입금자명)
   
-  ,reserve_Date number(30) not null--호텔예약날짜
-  
+  ,reserve_Date number(30) not null--호텔예약날
   ,reserve_Night varchar2(30) --숙박일수 = 기본 1박2일
   ,reserve_Ref number(20) --예약번호묶음
   ,reserve_Addr varchar2(40) --예약자연락처
@@ -100,4 +96,6 @@ create table adminT(
  increment by 1
  start with 1
  nocache;
+
+  select hr_no_seq.nextval from dual;
 

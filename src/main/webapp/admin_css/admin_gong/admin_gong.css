@@ -9,14 +9,74 @@
 #abList_wrap{
 	margin-left:400px;
 }
-
-#abbsEdit_wrap{
-	margin-left:400px;
-}
 #abbsCont_wrap{
 	margin-left:400px;
 }
 #abbsCont_wrap .abbsCont_title{
 	color:black;
 	text-decoration: bold;
+}
+
+#abbsEdit_wrap{
+	width:100%;
+	height:900px;
+	margin:auto;
+}
+
+#table_div{
+	width:80%;
+	margin:0 auto;
+/* 	border:1px solid black; */
+}
+
+#notice{
+	width:80%;
+	margin-top:100px;
+	margin-left: auto;
+	margin-right:auto;
+/* 	border:1px solid black; */
+}
+
+#notice .th1{
+/* 	border:1px solid black; */
+	background-color:#f488ce;
+	width:150px;
+	font-size:15px;
+	padding-right:20px;
+}
+
+#notice td{
+/* 	border:1px solid black; */
+}
+
+#notice .td1{
+	width:100%;
+	height:25px;
+	font-size:15px;
+}
+
+#notice .td2{
+/* 	font-size:20px; */
+	width:100%;
+	height:500px;
+	resize:none;
+}
+
+.btn1{
+	outline:0;
+	width:10%;
+	border-radius:13px;
+	background-color:white;
+}
+#bt_div{
+	margin:0 auto;
+	width:400px;
+/* 	border:1px solid black; */
+}
+
+.btn2{
+	outline:0;
+	width:120px;
+	border-radius:13px;
+	background-color:white;
 }

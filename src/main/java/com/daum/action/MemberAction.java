@@ -51,12 +51,22 @@ public class MemberAction {
 		//System.out.println("반환값 아이디:"+dm.getC_id());			
 
 		if(dm !=null ){
-			out.println("<script>");
-			out.println("alert('중복된 아이디 입니다.');");
-			out.println("history.back();");
-			out.println("</script>");
-		}
-		else{
+			if(dm.getMem_state()==2){
+				out.println("<script>");
+				out.println("alert('탈퇴한 회원 아이디 입니다.');");
+				out.println("history.back();");
+				out.println("</script>");
+				
+			}else if(dm.getMem_state()==1){
+				
+				out.println("<script>");
+				out.println("alert('중복된 아이디 입니다.');");
+				out.println("history.back();");
+				out.println("</script>");
+			}
+			
+		}else
+		{
 			MemberBean dm2=this.memberService.emailCheck(m.getMem_email());
 			//System.out.println("반환된 멜주소:"+dm2.getC_email());
 			if(dm2!=null){

@@ -5,7 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-<jsp:include page="../include/header.jsp" />
+<jsp:include page="../include/res_header.jsp" />
 
 	<c:set var="date" value="<%=new Date() %>" />
 	<form id="resok" method="post" action="reserveOk.kkc?day=${day}&resdate=${resdate }&selday=${selday}&h_no=${h_no}&reserve_roomfind=${roomfind}&state=${payment}&username=${username}&reserve_addr=${addr}&respwd=${respwd}">
@@ -28,7 +28,7 @@
 			
 			<c:forEach var="ho" items="${ho_info }">
 			
-			<input type="hidden" id ="price_option" name="bb" value="${price_option}" />
+			<input type="hidden" id ="price_option" name="price_option" value="${price_option}" />
 			
 			
 			
@@ -231,6 +231,7 @@
 			 <c:otherwise>카드결제</c:otherwise></c:choose></td>
 			 </tr>
 			 <c:choose>
+			 
 			 <c:when test="${payment eq 'B' }">
 			 <tr>
 			 <th>입금계좌</th>

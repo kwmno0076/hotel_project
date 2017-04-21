@@ -15,7 +15,7 @@
 		select * from hotel_reserve where reserve_date=#{reserve_date} and reserve_roomfind=1
 	</select>
 	
-	
+	<!-- 예약정보 가져오기 -->
 	<insert id="res_in" parameterType="reserve">
 		insert into hotel_reserve values(hr_no_seq.nextval,#{reserve_hno},#{reserve_name},#{reserve_roomfind},
 		#{reserve_userid},#{reserve_username},#{reserve_date},#{reserve_night},hr_no_seq.nextval,#{reserve_addr},#{reserve_pwd},
@@ -29,24 +29,30 @@
 
 <!-- 	 이용기간별 예약묶음처리 -->
 	<insert id="ref_in" parameterType="reserve">
-		insert into hotel_reserve values(r_no_seq.nextval,#{reserve_hno},#{reserve_name},#{reserve_roomfind},
+		insert into hotel_reserve values(hr_no_seq.nextval,#{reserve_hno},#{reserve_name},#{reserve_roomfind},
 		#{reserve_userid},#{reserve_username},#{reserve_date},#{reserve_night},#{reserve_no},
 		#{reserve_addr},#{reserve_pwd},#{reserve_price},#{reserve_payment},
 		#{reserve_payname},#{reserve_paynum},'N',sysdate)
+		<selectKey keyProperty="reserve_no" resultType="int" order="AFTER">
+			SELECT hr_no_seq.currval FROM dual
+		</selectKey>
 	</insert>
 	
 <!-- 	미결제정보가져오기 -->
 	<select id="getNopay" parameterType="reserve" resultType="int">
 		select reserve_no from hotel_reserve where reserve_username=#{reserve_username} and reserve_pwd=#{reserve_pwd}
 		and reserve_date=#{reserve_date} and reserve_payok='N' and reserve_ref=reserve_no
+		
 	</select> 
+	
+<!-- 	reserve_payname=#{reserve_payname}  은행 관련 정보인데잠시 대기-->
+	<!-- 결제 ok -->
+	<update id="payok" parameterType="reserve">
+		update hotel_reserve set reserve_payok='Y', reserve_payname=#{reserve_payname} where reserve_ref=#{reserve_ref}
+	</update>
 	
 	
 <!-- 	
-	성수기, 비수기 정보
-	<select id="getinfo" parameterType="pcb" resultType="pcb">
-		select * from publicCoC
-	</select>
 	
 	
 	<insert id="res_in" parameterType="reservation">
@@ -54,46 +60,20 @@
 		#{r_memid},#{r_resname},#{r_resdate},#{r_night},r_no_seq.nextval,#{r_usemen},#{r_addmen},
 		#{r_addcar},#{r_elec},#{r_restel},#{r_respwd},#{r_price},#{r_payment},
 		#{r_payname},#{r_paynum},'N',sysdate)
+		
+		
 		<selectKey keyProperty="r_no" resultType="int" order="AFTER">
 			SELECT r_no_seq.currval FROM dual
 		</selectKey>
 	</insert>
 
-	이용기간별 예약묶음처리
-	<insert id="ref_in" parameterType="reservation">
-		insert into reservation values(r_no_seq.nextval,#{r_clno},#{r_clname},#{r_clfind},
-		#{r_memid},#{r_resname},#{r_resdate},#{r_night},#{r_no},#{r_usemen},#{r_addmen},
-		#{r_addcar},#{r_elec},#{r_restel},#{r_respwd},#{r_price},#{r_payment},
-		#{r_payname},#{r_paynum},'N',sysdate)
-	</insert>
 	
-	결제완료
-	<update id="payok" parameterType="reservation">
-		update reservation set r_payok='Y', r_payname=#{r_payname} where r_resref=#{r_resref}
-	</update>
-	
-	예약정보가져오기
-	<select id="getResinfo" parameterType="reservation" resultType="reservation">
-		select * from reservation where r_memid=#{r_memid} and r_resname=#{r_resname}
-		and r_respwd=#{r_respwd} and r_no=r_resref
-	</select>
-	
-
-	
-	날짜별 대여텐트 예약정보
-	<select id="getdate2" parameterType="int" resultType="reservation">
-		select * from reservation where r_resdate=#{r_date} and r_clfind=2
-	</select>
 	
 	취소신청
 	<update id="del_res" parameterType="int">
 		update reservation set r_payok='X' where r_resref=#{r_no}
 	</update>
 	
-	미결제정보가져오기
-	<select id="getNopay" parameterType="reservation" resultType="int">
-		select r_no from reservation where r_resname=#{r_resname} and r_respwd=#{r_respwd}
-		and r_resdate=#{r_resdate} and r_payok='N' and r_resref=r_no
-	</select>  -->
+	  -->
 	
 </mapper>

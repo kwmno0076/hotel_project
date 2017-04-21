@@ -9,12 +9,15 @@
 
 
 <script src=./js/jquery.js></script>
-<script src="./js/kumsa.js"></script>
+
 <script src="./js/modernizr.custom.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="./js/jquery.lettering.js"></script>
-<script src="./js/sum.js"></script>
+
+
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+
+
 
 <link rel="stylesheet" type="text/css" href="./css/main.css" /><%-- css적용 --%>
 <link rel="stylesheet" type="text/css" href="./css/ho.css" />

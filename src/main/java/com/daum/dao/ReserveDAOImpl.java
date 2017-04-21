@@ -43,6 +43,12 @@ public class ReserveDAOImpl implements ReserveDAO {
 		
 		return this.sqlSession.selectOne("getNopay", rb);
 	}
+
+	@Override
+	public int payok(ReserveBean rb) {
+		
+		return this.sqlSession.update("payok",rb);
+	}
 	
 
 }

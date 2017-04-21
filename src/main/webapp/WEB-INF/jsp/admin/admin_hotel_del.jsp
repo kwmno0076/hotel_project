@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ include file="../include/header.jsp"%>
+<%@ include file="../include/admin_header.jsp"%>
 <%-- 상단 공통부분을 외부 포함파일 불러오기 --%>
 <%--서브 메인이미지 --%>
 
